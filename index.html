@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sustainability by Saloni</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sage:#8a9e7b;--sage-light:#c5d4bc;--sage-dark:#4a6040;
+  --terra:#b5714a;--terra-light:#e8c4a8;--terra-dark:#7a3e1f;
+  --cloth:#9b7ea6;--cloth-light:#d9c8e3;--cloth-dark:#5e4470;
+  --cream:#f5f0e8;--linen:#ede6d8;--ink:#1e1c18;--muted:#6b6660;--white:#ffffff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+.page{display:none}.page.active{display:block}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(245,240,232,0.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(138,158,123,0.2)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--ink);cursor:pointer;white-space:nowrap}
+.nav-logo span{color:var(--sage-dark);font-style:italic}
+.nav-links{display:flex;gap:0;list-style:none;align-items:center;flex-wrap:wrap}
+.nav-links li a,.nav-links li span{font-size:0.76rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s;padding:0.4rem 0.8rem;cursor:pointer;display:block}
+.nav-links li a:hover,.nav-links li span:hover{color:var(--ink)}
+.nav-links li span.active-nav,.nav-links li a.active-nav{color:var(--ink);font-weight:500;border-bottom:1.5px solid var(--sage-dark)}
+.nav-phone{font-size:0.76rem;color:var(--sage-dark)!important;font-weight:500;letter-spacing:0.04em!important}
+.nav-pill{background:var(--sage-dark);color:var(--white)!important;padding:0.42rem 1.1rem!important;border-radius:2rem;margin-left:0.5rem;transition:background 0.2s!important;cursor:pointer;border-bottom:none!important;white-space:nowrap}
+.nav-pill:hover{background:var(--terra-dark)!important}
+
+/* ── SHARED ── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes floatUp{from{transform:translateY(0)}to{transform:translateY(-10px)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.section-header{text-align:center;margin-bottom:3.5rem}
+.section-tag{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:0.8rem;display:block}
+.section-header h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--ink)}
+.marquee-wrap{overflow:hidden;background:var(--sage-dark);padding:0.85rem 0;white-space:nowrap}
+.marquee-track{display:inline-flex;animation:marquee 26s linear infinite}
+.marquee-track span{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.7);padding:0 2.5rem}
+.marquee-track span.dot{color:var(--terra-light);padding:0}
+.btn-primary{background:var(--ink);color:var(--white);border:none;padding:0.85rem 2rem;border-radius:2rem;font-family:'DM Sans',sans-serif;font-size:0.88rem;letter-spacing:0.05em;cursor:pointer;transition:background 0.2s,transform 0.15s;text-decoration:none;display:inline-block}
+.btn-primary:hover{background:var(--terra-dark);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid rgba(30,28,24,0.3);padding:0.85rem 2rem;border-radius:2rem;font-family:'DM Sans',sans-serif;font-size:0.88rem;cursor:pointer;transition:border-color 0.2s,transform 0.15s;text-decoration:none;display:inline-block}
+.btn-outline:hover{border-color:var(--ink);transform:translateY(-1px)}
+.btn-cloth{background:var(--cloth-dark);color:var(--white);border:none;padding:0.85rem 2rem;border-radius:2rem;font-family:'DM Sans',sans-serif;font-size:0.88rem;cursor:pointer;transition:background 0.2s,transform 0.15s;text-decoration:none;display:inline-block}
+.btn-cloth:hover{background:var(--terra-dark);transform:translateY(-1px)}
+.cta-section{background:var(--sage-dark);padding:5rem 4rem;text-align:center;position:relative;overflow:hidden}
+.cta-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--white);margin-bottom:0.8rem}
+.cta-section p{font-size:0.92rem;color:rgba(245,240,232,0.65);margin-bottom:2rem}
+.cta-cloth{background:var(--cloth-dark)}
+.ft{background:var(--ink);color:rgba(245,240,232,0.6)}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding:3rem 4rem 2rem}
+.ft-brand{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--cream);margin-bottom:0.7rem}
+.ft-brand span{color:var(--sage-light);font-style:italic}
+.ft-desc{font-size:0.82rem;line-height:1.8;max-width:230px}
+.ft-phone{font-size:0.88rem;color:var(--sage-light)!important;margin-top:0.5rem;display:block}
+.ft-col h4{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cream);margin-bottom:1rem}
+.ft-col a{display:block;font-size:0.82rem;color:rgba(245,240,232,0.5);text-decoration:none;margin-bottom:0.5rem;transition:color 0.2s;cursor:pointer}
+.ft-col a:hover{color:var(--cream)}
+.ft-bottom{padding:1.2rem 4rem;border-top:1px solid rgba(245,240,232,0.08);display:flex;justify-content:space-between;align-items:center}
+.ft-copy{font-size:0.76rem;color:rgba(245,240,232,0.3)}
+
+/* ══════ HOME ══════ */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:6rem 4rem 4rem;gap:4rem}
+.hero-text>*{animation:fadeInUp 0.7s ease forwards;opacity:0}
+.hero-tag{display:inline-block;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-dark);background:rgba(138,158,123,0.15);padding:0.35rem 1rem;border-radius:2rem;margin-bottom:1.8rem;border:1px solid rgba(138,158,123,0.3);animation-delay:0.1s}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5vw,5.2rem);font-weight:300;line-height:1.05;color:var(--ink);margin-bottom:1.4rem;animation-delay:0.25s}
+.hero h1 em{font-style:italic;color:var(--terra)}
+.hero-desc{font-size:0.97rem;line-height:1.8;color:var(--muted);margin-bottom:2.2rem;max-width:440px;animation-delay:0.4s}
+.hero-btns{display:flex;gap:1rem;align-items:center;animation-delay:0.55s;flex-wrap:wrap}
+.hero-visual{position:relative;height:560px;animation:fadeInUp 0.9s 0.3s ease forwards;opacity:0}
+.hero-main-card{position:absolute;right:0;top:0;width:72%;height:88%;background:var(--linen);border-radius:1rem 1rem 6rem 1rem;overflow:hidden}
+.hero-card-inner{width:100%;height:100%;background:linear-gradient(160deg,#c5d4bc 0%,#e8c4a8 50%,#b5d4bc 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem}
+.hero-bottle-svg{width:110px;opacity:0.85;animation:floatUp 3s ease-in-out infinite alternate}
+.hero-card-label{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--sage-dark);font-style:italic}
+.hero-accent-card{position:absolute;left:0;bottom:3rem;width:50%;background:var(--white);border-radius:1rem;padding:1.2rem 1.5rem;box-shadow:0 8px 32px rgba(30,28,24,0.08);border:1px solid rgba(138,158,123,0.2)}
+.hero-accent-title{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:0.4rem}
+.hero-accent-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--ink);line-height:1}
+.hero-accent-sub{font-size:0.78rem;color:var(--muted);margin-top:0.2rem}
+
+/* ── MISSION with photo upload ── */
+.mission{padding:6rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.mission-label{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--terra);margin-bottom:1rem}
+.mission h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.2;color:var(--ink);margin-bottom:1.4rem}
+.mission p{font-size:0.93rem;line-height:1.9;color:var(--muted);margin-bottom:1rem}
+.mission-stats{display:flex;gap:2.5rem;margin-top:2rem;flex-wrap:wrap}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:600;color:var(--sage-dark);line-height:1}
+.stat-label{font-size:0.76rem;color:var(--muted);margin-top:0.3rem}
+/* photo grid with upload */
+.mission-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.mission-photo-slot{border-radius:0.9rem;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;cursor:pointer;border:2px dashed rgba(138,158,123,0.3);transition:border-color 0.2s}
+.mission-photo-slot:nth-child(1){background:rgba(181,113,74,0.08)}
+.mission-photo-slot:nth-child(2){background:rgba(138,158,123,0.12);margin-top:2.5rem}
+.mission-photo-slot:hover{border-color:var(--sage-dark)}
+.mission-photo-slot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.mission-upload-label{display:flex;flex-direction:column;align-items:center;gap:0.5rem;z-index:1;position:relative;transition:opacity 0.2s}
+.mission-upload-icon{font-size:2.5rem}
+.mission-upload-text{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dark);font-weight:500}
+.mission-photo-slot.has-img .mission-upload-label{opacity:0}
+.mission-photo-slot.has-img:hover .mission-upload-label{opacity:1;background:rgba(30,28,24,0.35);padding:0.5rem 1rem;border-radius:0.5rem}
+.mission-clear-btn{position:absolute;top:0.5rem;right:0.5rem;background:rgba(30,28,24,0.7);color:var(--white);border:none;width:26px;height:26px;border-radius:50%;font-size:0.75rem;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:2}
+.mission-photo-slot.has-img .mission-clear-btn{display:flex}
+.mission-photo-slot input[type=file]{display:none}
+
+/* collections / products */
+.collections{padding:2rem 4rem 6rem}
+.collection-tabs{display:flex;justify-content:center;gap:0.5rem;margin-bottom:3rem;flex-wrap:wrap}
+.tab-btn{padding:0.5rem 1.4rem;border-radius:2rem;border:1.5px solid rgba(30,28,24,0.15);background:transparent;font-family:'DM Sans',sans-serif;font-size:0.8rem;cursor:pointer;color:var(--muted);transition:all 0.2s}
+.tab-btn.active,.tab-btn:hover{background:var(--sage-dark);color:var(--white);border-color:var(--sage-dark)}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+.product-card{background:var(--white);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(138,158,123,0.15);transition:transform 0.25s,box-shadow 0.25s;display:none}
+.product-card.visible{display:block}
+.product-card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(30,28,24,0.09)}
+.p-img{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:4.5rem;position:relative;overflow:hidden;cursor:zoom-in}
+.p-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.ph{position:relative;z-index:1}
+.p-glass{background:linear-gradient(135deg,rgba(181,212,188,0.4),rgba(197,212,188,0.6))}
+.p-vase{background:linear-gradient(135deg,rgba(181,113,74,0.15),rgba(181,212,188,0.3))}
+.p-platter{background:linear-gradient(135deg,rgba(197,180,145,0.3),rgba(181,113,74,0.2))}
+.p-cushion{background:linear-gradient(135deg,rgba(155,126,166,0.2),rgba(217,200,227,0.4))}
+.p-sheets{background:linear-gradient(135deg,rgba(181,113,74,0.1),rgba(232,196,168,0.4))}
+.p-bag{background:linear-gradient(135deg,rgba(94,68,112,0.12),rgba(155,126,166,0.25))}
+.p-badge{position:absolute;top:0.9rem;left:0.9rem;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;background:var(--sage-dark);color:var(--white);padding:0.28rem 0.7rem;border-radius:2rem;z-index:2}
+.p-info{padding:1.1rem 1.4rem 1.4rem}
+.p-cat{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--terra);margin-bottom:0.3rem}
+.p-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--ink);margin-bottom:0.35rem}
+.p-desc{font-size:0.8rem;color:var(--muted);line-height:1.6}
+
+/* process */
+.process{background:var(--linen);padding:6rem 4rem;text-align:center}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:4rem;position:relative}
+.process-steps::before{content:'';position:absolute;top:2.4rem;left:13%;right:13%;height:1px;background:linear-gradient(90deg,transparent,var(--sage-light),transparent)}
+.step-card{display:flex;flex-direction:column;align-items:center;gap:0.9rem}
+.step-num{width:50px;height:50px;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--sage-dark);border:1.5px solid var(--sage-light);position:relative;z-index:1}
+.step-icon{font-size:1.9rem}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--ink)}
+.step-desc{font-size:0.8rem;color:var(--muted);line-height:1.7}
+
+/* ══════ ABOUT PAGE ══════ */
+.about-hero{min-height:60vh;background:linear-gradient(145deg,#e8eed4 0%,#f5ede0 50%,#dde8d6 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 4rem 5rem;position:relative;overflow:hidden}
+.about-hero::before{content:'';position:absolute;width:550px;height:550px;border-radius:50%;background:rgba(74,96,64,0.05);top:-180px;right:-120px}
+.about-hero::after{content:'';position:absolute;width:350px;height:350px;border-radius:50%;background:rgba(181,113,74,0.05);bottom:-100px;left:5%}
+.about-hero-tag{display:inline-block;font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage-dark);background:rgba(74,96,64,0.1);padding:0.32rem 1rem;border-radius:2rem;margin-bottom:1.5rem;border:1px solid rgba(74,96,64,0.18)}
+.about-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5.5vw,5.5rem);font-weight:300;color:var(--ink);line-height:1.05;margin-bottom:1.2rem}
+.about-hero h1 em{font-style:italic;color:var(--terra)}
+.about-hero-p{font-size:1rem;color:var(--muted);max-width:580px;line-height:1.85;margin:0 auto}
+
+/* founder section */
+.founder-section{padding:6rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.founder-img-wrap{position:relative}
+.founder-img{border-radius:1rem 1rem 5rem 1rem;aspect-ratio:4/5;overflow:hidden;position:relative;background:linear-gradient(145deg,#c5d4bc,#e8c4a8);display:flex;align-items:center;justify-content:center;cursor:pointer;border:2px dashed rgba(138,158,123,0.3);transition:border-color 0.2s}
+.founder-img:hover{border-color:var(--sage-dark)}
+.founder-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.founder-img-upload{display:flex;flex-direction:column;align-items:center;gap:0.6rem;position:relative;z-index:1;transition:opacity 0.2s}
+.founder-img.has-img .founder-img-upload{opacity:0}
+.founder-img.has-img:hover .founder-img-upload{opacity:1;background:rgba(30,28,24,0.4);padding:0.75rem 1.2rem;border-radius:0.75rem}
+.founder-clear{position:absolute;top:0.75rem;right:0.75rem;background:rgba(30,28,24,0.7);color:var(--white);border:none;width:28px;height:28px;border-radius:50%;font-size:0.8rem;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:2}
+.founder-img.has-img .founder-clear{display:flex}
+.founder-img input{display:none}
+.founder-img-icon{font-size:3.5rem}
+.founder-img-text{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-dark);font-weight:500}
+.founder-badge{position:absolute;bottom:-1.2rem;left:2rem;background:var(--white);border-radius:0.8rem;padding:0.9rem 1.4rem;box-shadow:0 8px 28px rgba(30,28,24,0.1);border:1px solid rgba(138,158,123,0.2)}
+.founder-badge-label{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:0.2rem}
+.founder-badge-text{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink)}
+.founder-tag{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--terra);margin-bottom:0.9rem}
+.founder-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,3rem);font-weight:300;color:var(--ink);line-height:1.15;margin-bottom:1.2rem}
+.founder-section p{font-size:0.93rem;line-height:1.9;color:var(--muted);margin-bottom:1rem}
+.founder-sig{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic;color:var(--sage-dark);margin-top:1.5rem}
+
+/* values */
+.values-section{background:var(--linen);padding:6rem 4rem}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem}
+.value-card{background:var(--white);border-radius:1.2rem;padding:2rem;border:1px solid rgba(138,158,123,0.15);transition:transform 0.2s,box-shadow 0.2s}
+.value-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(30,28,24,0.08)}
+.value-icon{font-size:2.2rem;margin-bottom:1rem}
+.value-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--ink);margin-bottom:0.6rem}
+.value-text{font-size:0.82rem;color:var(--muted);line-height:1.75}
+
+/* journey / timeline */
+.journey-section{padding:6rem 4rem}
+.timeline{margin-top:4rem;position:relative;padding-left:3rem}
+.timeline::before{content:'';position:absolute;left:0.75rem;top:0;bottom:0;width:1.5px;background:linear-gradient(180deg,var(--sage-light),rgba(197,212,188,0))}
+.timeline-item{position:relative;padding-bottom:3rem}
+.timeline-dot{position:absolute;left:-3rem;top:0.25rem;width:22px;height:22px;border-radius:50%;background:var(--white);border:2px solid var(--sage-dark);display:flex;align-items:center;justify-content:center}
+.timeline-dot::after{content:'';width:8px;height:8px;border-radius:50%;background:var(--sage-dark)}
+.timeline-year{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--terra);margin-bottom:0.4rem;font-weight:500}
+.timeline-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--ink);margin-bottom:0.5rem}
+.timeline-text{font-size:0.88rem;color:var(--muted);line-height:1.8;max-width:600px}
+
+/* studio photos */
+.studio-section{background:var(--linen);padding:6rem 4rem}
+.studio-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:3.5rem}
+.studio-slot{border-radius:0.9rem;aspect-ratio:1;overflow:hidden;position:relative;cursor:pointer;background:rgba(138,158,123,0.12);border:2px dashed rgba(138,158,123,0.3);display:flex;align-items:center;justify-content:center;transition:border-color 0.2s}
+.studio-slot:hover{border-color:var(--sage-dark)}
+.studio-slot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.studio-slot-label{display:flex;flex-direction:column;align-items:center;gap:0.4rem;position:relative;z-index:1;transition:opacity 0.2s}
+.studio-slot.has-img .studio-slot-label{opacity:0}
+.studio-slot.has-img:hover .studio-slot-label{opacity:1;background:rgba(30,28,24,0.4);padding:0.5rem 0.8rem;border-radius:0.5rem}
+.studio-slot-icon{font-size:1.8rem}
+.studio-slot-text{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--sage-dark);font-weight:500}
+.studio-clear{position:absolute;top:0.5rem;right:0.5rem;background:rgba(30,28,24,0.7);color:var(--white);border:none;width:24px;height:24px;border-radius:50%;font-size:0.7rem;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:2}
+.studio-slot.has-img .studio-clear{display:flex}
+.studio-slot input{display:none}
+/* varied sizes */
+.studio-slot:nth-child(1){grid-row:span 2;aspect-ratio:auto}
+.studio-slot:nth-child(4){grid-row:span 2;aspect-ratio:auto}
+
+/* impact numbers */
+.impact-section{padding:6rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.impact-nums{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.impact-num-card{background:var(--white);border-radius:1rem;padding:1.5rem;border:1px solid rgba(138,158,123,0.15);text-align:center}
+.impact-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:var(--sage-dark);line-height:1}
+.impact-label{font-size:0.75rem;color:var(--muted);margin-top:0.4rem}
+.impact-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:300;color:var(--ink);line-height:1.2;margin-bottom:1.2rem}
+.impact-text p{font-size:0.93rem;line-height:1.9;color:var(--muted);margin-bottom:1rem}
+.impact-text ul{list-style:none;margin-top:1rem;display:flex;flex-direction:column;gap:0.6rem}
+.impact-text ul li{font-size:0.88rem;color:var(--muted);display:flex;align-items:flex-start;gap:0.6rem}
+.impact-text ul li::before{content:'✦';color:var(--sage-dark);font-size:0.6rem;margin-top:0.2rem;flex-shrink:0}
+
+/* ══════ GLASSWARE PAGE ══════ */
+.gw-hero{min-height:52vh;background:linear-gradient(140deg,#d6e8d0 0%,#e8d8c4 60%,#c8ddd6 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 4rem 4rem;position:relative;overflow:hidden}
+.gw-hero::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:rgba(255,255,255,0.12);top:-160px;right:-100px}
+.gw-hero::after{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(74,96,64,0.07);bottom:-80px;left:5%}
+.gw-tag{display:inline-block;font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage-dark);background:rgba(74,96,64,0.12);padding:0.32rem 1rem;border-radius:2rem;margin-bottom:1.5rem;border:1px solid rgba(74,96,64,0.2)}
+.gw-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,5rem);font-weight:300;color:var(--ink);line-height:1.05;margin-bottom:1rem}
+.gw-hero h1 em{font-style:italic;color:var(--terra)}
+.gw-hero-p{font-size:0.97rem;color:var(--muted);max-width:520px;line-height:1.8;margin-bottom:2rem}
+.gw-hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.gw-filter-bar{display:flex;justify-content:center;gap:0.5rem;padding:2.5rem 4rem 0;flex-wrap:wrap}
+.gw-fb{padding:0.48rem 1.3rem;border-radius:2rem;border:1.5px solid rgba(30,28,24,0.15);background:transparent;font-family:'DM Sans',sans-serif;font-size:0.78rem;letter-spacing:0.06em;cursor:pointer;color:var(--muted);transition:all 0.2s}
+.gw-fb.active,.gw-fb:hover{background:var(--sage-dark);color:var(--white);border-color:var(--sage-dark)}
+.gw-gallery{padding:2.5rem 4rem 5rem}
+.manage-row{display:flex;justify-content:flex-end;margin-bottom:1.5rem}
+.mgbtn{background:var(--ink);color:var(--white);border:none;padding:0.55rem 1.4rem;border-radius:2rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;letter-spacing:0.08em;cursor:pointer;transition:background 0.2s}
+.mgbtn:hover{background:var(--terra-dark)}
+.gw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.gw-card{background:var(--white);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(138,158,123,0.15);transition:transform 0.25s,box-shadow 0.25s}
+.gw-card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(30,28,24,0.1)}
+.gw-card:nth-child(2),.gw-card:nth-child(5){margin-top:1.8rem}
+.gw-card.hidden{display:none}
+.gw-img{width:100%;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden;cursor:zoom-in}
+.gw-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.gw-img .ph{position:relative;z-index:1}
+.gi-glass{background:linear-gradient(140deg,rgba(180,214,190,0.5),rgba(210,235,225,0.6))}
+.gi-shot{background:linear-gradient(140deg,rgba(181,113,74,0.12),rgba(197,212,188,0.4))}
+.gi-vase{background:linear-gradient(140deg,rgba(200,220,215,0.5),rgba(160,200,190,0.4))}
+.gi-platter{background:linear-gradient(140deg,rgba(220,200,165,0.4),rgba(181,113,74,0.18))}
+.gi-decanter{background:linear-gradient(140deg,rgba(165,195,185,0.4),rgba(130,175,160,0.3))}
+.gi-set{background:linear-gradient(140deg,rgba(197,212,188,0.4),rgba(181,212,200,0.5))}
+.gw-badge{position:absolute;top:0.9rem;left:0.9rem;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;background:var(--sage-dark);color:var(--white);padding:0.28rem 0.7rem;border-radius:2rem;z-index:2}
+.gw-badge.nb{background:var(--terra)}
+.gw-info{padding:1.1rem 1.4rem 1.5rem}
+.gw-cat{font-size:0.66rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--terra);margin-bottom:0.25rem}
+.gw-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--ink);margin-bottom:0.35rem}
+.gw-desc{font-size:0.79rem;color:var(--muted);line-height:1.6}
+.gw-spotlight{padding:0 4rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.gw-spot-img{border-radius:1.2rem;overflow:hidden;aspect-ratio:1;background:linear-gradient(140deg,#c8ddd6,#daeee6);display:flex;align-items:center;justify-content:center;font-size:8rem;position:relative;cursor:zoom-in}
+.gw-spot-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.gw-spot-img .ph{position:relative;z-index:1}
+.gw-spot-tag{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--terra);margin-bottom:0.9rem}
+.gw-spotlight h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:300;color:var(--ink);margin-bottom:1rem;line-height:1.15}
+.gw-spotlight p{font-size:0.9rem;color:var(--muted);line-height:1.85}
+.gw-spotlight ul{margin-top:1.2rem;list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.gw-spotlight ul li{font-size:0.85rem;color:var(--muted);display:flex;align-items:center;gap:0.5rem}
+.gw-spotlight ul li::before{content:'✦';color:var(--sage-dark);font-size:0.6rem}
+.gw-process{background:var(--linen);padding:4rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center}
+.gw-st-icon{font-size:2.2rem;margin-bottom:0.6rem}
+.gw-st-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ink);margin-bottom:0.4rem}
+.gw-st-desc{font-size:0.8rem;color:var(--muted);line-height:1.7}
+
+/* ══════ RECYCLED CLOTH PAGE ══════ */
+.rc-hero{min-height:55vh;background:linear-gradient(140deg,#e8d8f0 0%,#f0e6d8 55%,#d8e4d0 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 4rem 4rem;position:relative;overflow:hidden}
+.rc-hero::before{content:'';position:absolute;width:480px;height:480px;border-radius:50%;background:rgba(155,126,166,0.08);top:-140px;right:-80px}
+.rc-hero::after{content:'';position:absolute;width:320px;height:320px;border-radius:50%;background:rgba(94,68,112,0.06);bottom:-100px;left:8%}
+.rc-tag{display:inline-block;font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--cloth-dark);background:rgba(155,126,166,0.14);padding:0.32rem 1rem;border-radius:2rem;margin-bottom:1.5rem;border:1px solid rgba(155,126,166,0.25)}
+.rc-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,5rem);font-weight:300;color:var(--ink);line-height:1.05;margin-bottom:1rem}
+.rc-hero h1 em{font-style:italic;color:var(--cloth)}
+.rc-hero-p{font-size:0.97rem;color:var(--muted);max-width:540px;line-height:1.8;margin-bottom:2rem}
+.rc-hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.rc-stats{background:var(--cloth-dark);padding:2.5rem 4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.rc-stat-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:600;color:var(--white);line-height:1}
+.rc-stat-label{font-size:0.76rem;color:rgba(255,255,255,0.65);margin-top:0.3rem;letter-spacing:0.08em}
+.rc-filter-bar{display:flex;justify-content:center;gap:0.5rem;padding:2.5rem 4rem 0;flex-wrap:wrap}
+.rc-fb{padding:0.48rem 1.3rem;border-radius:2rem;border:1.5px solid rgba(30,28,24,0.15);background:transparent;font-family:'DM Sans',sans-serif;font-size:0.78rem;letter-spacing:0.06em;cursor:pointer;color:var(--muted);transition:all 0.2s}
+.rc-fb.active,.rc-fb:hover{background:var(--cloth-dark);color:var(--white);border-color:var(--cloth-dark)}
+.rc-gallery{padding:2.5rem 4rem 5rem}
+.rc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.rc-card{background:var(--white);border-radius:1.2rem;overflow:hidden;border:1px solid rgba(155,126,166,0.18);transition:transform 0.25s,box-shadow 0.25s}
+.rc-card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(94,68,112,0.12)}
+.rc-card:nth-child(2),.rc-card:nth-child(5){margin-top:1.8rem}
+.rc-card.hidden{display:none}
+.rc-img{width:100%;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden;cursor:zoom-in}
+.rc-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:1}
+.rc-img .ph{position:relative;z-index:1}
+.ri-cushion{background:linear-gradient(140deg,rgba(217,200,227,0.6),rgba(232,215,240,0.5))}
+.ri-cover{background:linear-gradient(140deg,rgba(232,196,168,0.4),rgba(217,200,227,0.5))}
+.ri-sheets{background:linear-gradient(140deg,rgba(155,126,166,0.2),rgba(240,230,216,0.5))}
+.ri-bag{background:linear-gradient(140deg,rgba(94,68,112,0.15),rgba(155,126,166,0.25))}
+.ri-tote{background:linear-gradient(140deg,rgba(181,113,74,0.12),rgba(155,126,166,0.2))}
+.ri-patchwork{background:linear-gradient(140deg,rgba(138,158,123,0.2),rgba(217,200,227,0.4))}
+.rc-badge{position:absolute;top:0.9rem;left:0.9rem;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;background:var(--cloth-dark);color:var(--white);padding:0.28rem 0.7rem;border-radius:2rem;z-index:2}
+.rc-badge.nb{background:var(--terra)}
+.rc-info{padding:1.1rem 1.4rem 1.5rem}
+.rc-cat{font-size:0.66rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--cloth);margin-bottom:0.25rem}
+.rc-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--ink);margin-bottom:0.35rem}
+.rc-desc{font-size:0.79rem;color:var(--muted);line-height:1.6}
+.rc-spotlight{padding:0 4rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.rc-spot-img{border-radius:1.2rem;overflow:hidden;aspect-ratio:1;background:linear-gradient(140deg,#d9c8e3,#ead5f0);display:flex;align-items:center;justify-content:center;font-size:8rem;position:relative;cursor:zoom-in}
+.rc-spot-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.rc-spot-img .ph{position:relative;z-index:1}
+.rc-spot-tag{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--cloth);margin-bottom:0.9rem}
+.rc-spotlight h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.8rem);font-weight:300;color:var(--ink);margin-bottom:1rem;line-height:1.15}
+.rc-spotlight p{font-size:0.9rem;color:var(--muted);line-height:1.85}
+.rc-spotlight ul{margin-top:1.2rem;list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.rc-spotlight ul li{font-size:0.85rem;color:var(--muted);display:flex;align-items:center;gap:0.5rem}
+.rc-spotlight ul li::before{content:'✦';color:var(--cloth-dark);font-size:0.6rem}
+.rc-process{background:var(--linen);padding:4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.rc-st-icon{font-size:2.2rem;margin-bottom:0.6rem}
+.rc-st-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--ink);margin-bottom:0.4rem}
+.rc-st-desc{font-size:0.78rem;color:var(--muted);line-height:1.7}
+
+/* ══════ ADMIN PANEL ══════ */
+.admin-overlay{display:none;position:fixed;inset:0;background:rgba(30,28,24,0.6);z-index:300;align-items:center;justify-content:center;padding:1.5rem}
+.admin-overlay.open{display:flex}
+.admin-panel{background:var(--white);border-radius:1.5rem;width:100%;max-width:820px;max-height:90vh;overflow-y:auto;padding:2.5rem;position:relative}
+.admin-close{position:absolute;top:1.4rem;right:1.4rem;background:var(--linen);border:none;width:34px;height:34px;border-radius:50%;font-size:1rem;cursor:pointer;color:var(--ink);transition:background 0.2s}
+.admin-close:hover{background:var(--terra-light)}
+.admin-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:400;color:var(--ink);margin-bottom:0.2rem}
+.admin-sub{font-size:0.8rem;color:var(--muted);margin-bottom:2rem}
+.admin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+.uslot{border:2px dashed rgba(138,158,123,0.35);border-radius:1rem;padding:1.2rem;transition:border-color 0.2s}
+.uslot:hover{border-color:var(--sage-dark)}
+.uslot-label{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--terra);margin-bottom:0.25rem}
+.uslot-name{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);margin-bottom:0.75rem}
+.uprev{width:100%;aspect-ratio:4/3;border-radius:0.6rem;overflow:hidden;background:var(--linen);display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin-bottom:0.7rem;position:relative}
+.uprev img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.uprev .ph{position:relative;z-index:1}
+.uactions{display:flex;gap:0.5rem}
+.ubtn{flex:1;background:var(--sage-dark);color:var(--white);border:none;padding:0.48rem 0.75rem;border-radius:0.5rem;font-family:'DM Sans',sans-serif;font-size:0.76rem;cursor:pointer;transition:background 0.2s}
+.ubtn:hover{background:var(--terra-dark)}
+.clrbtn{background:transparent;color:var(--muted);border:1px solid rgba(30,28,24,0.15);padding:0.48rem 0.75rem;border-radius:0.5rem;font-family:'DM Sans',sans-serif;font-size:0.76rem;cursor:pointer;transition:all 0.2s}
+.clrbtn:hover{background:var(--linen);color:var(--ink)}
+.hi{display:none}
+.ustatus{font-size:0.7rem;color:var(--sage-dark);margin-top:0.3rem;min-height:1rem}
+.admin-save-row{margin-top:2rem;display:flex;justify-content:flex-end;gap:0.75rem;align-items:center}
+.save-msg{font-size:0.8rem;color:var(--sage-dark);opacity:0;transition:opacity 0.3s}
+.save-msg.show{opacity:1}
+.btn-save{background:var(--ink);color:var(--white);border:none;padding:0.72rem 1.8rem;border-radius:2rem;font-family:'DM Sans',sans-serif;font-size:0.85rem;cursor:pointer;transition:background 0.2s}
+.btn-save:hover{background:var(--terra-dark)}
+
+/* ══════ PHOTO LIGHTBOX (click gallery image to enlarge + details) ══════ */
+.photo-lightbox{display:none;position:fixed;inset:0;background:rgba(30,28,24,0.9);z-index:280;align-items:center;justify-content:center;padding:1.5rem;overflow-y:auto;backdrop-filter:blur(8px)}
+.photo-lightbox.open{display:flex}
+.photo-lb-close{position:fixed;top:1rem;right:1.2rem;width:44px;height:44px;border:none;border-radius:50%;background:rgba(245,240,232,0.95);color:var(--ink);font-size:1.15rem;cursor:pointer;z-index:282;transition:background 0.2s,transform 0.15s}
+.photo-lb-close:hover{background:var(--white);transform:scale(1.05)}
+.photo-lb-inner{max-width:920px;width:100%;background:var(--white);border-radius:1.25rem;overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;box-shadow:0 24px 60px rgba(0,0,0,0.35);margin:auto}
+.photo-lb-img-wrap{background:var(--linen);display:flex;align-items:center;justify-content:center;min-height:240px;max-height:min(70vh,620px);overflow:hidden;position:relative}
+.photo-lb-img-wrap img{width:100%;height:100%;max-height:min(70vh,620px);object-fit:contain;display:block}
+.photo-lb-placeholder{display:none;width:100%;height:100%;min-height:260px;max-height:min(70vh,620px);align-items:center;justify-content:center;font-size:clamp(4rem,12vw,7rem);position:relative}
+.photo-lb-placeholder .photo-lb-emoji{position:relative;z-index:1;line-height:1}
+.photo-lb-details{padding:2rem 2.25rem 2.5rem;display:flex;flex-direction:column;justify-content:center}
+.photo-lb-cat{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:0.65rem}
+.photo-lb-name{font-family:'Cormorant Garamond',serif;font-size:clamp(1.45rem,3vw,2.35rem);font-weight:400;color:var(--ink);margin-bottom:1rem;line-height:1.15}
+.photo-lb-desc{font-size:0.91rem;color:var(--muted);line-height:1.75}
+
+/* bottom contact lightbox */
+.order-lightbox{
+  position:fixed;
+  left:50%;
+  bottom:1rem;
+  transform:translateX(-50%);
+  width:min(960px,calc(100% - 2rem));
+  background:rgba(30,28,24,0.93);
+  color:var(--cream);
+  border:1px solid rgba(245,240,232,0.2);
+  border-radius:0.9rem;
+  box-shadow:0 12px 32px rgba(30,28,24,0.28);
+  backdrop-filter:blur(8px);
+  z-index:260;
+  padding:0.8rem 1rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  gap:0.65rem;
+}
+.order-lightbox-msg{font-size:0.82rem;line-height:1.45;color:rgba(245,240,232,0.9)}
+.order-lightbox-link{color:var(--sage-light);font-weight:600;text-decoration:none;white-space:nowrap}
+.order-lightbox-link:hover{color:var(--white);text-decoration:underline}
+.order-lightbox-close{
+  width:24px;
+  height:24px;
+  border:none;
+  border-radius:50%;
+  background:rgba(245,240,232,0.16);
+  color:var(--cream);
+  font-size:0.8rem;
+  line-height:1;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  transition:background 0.2s,transform 0.15s;
+}
+.order-lightbox-close:hover{background:rgba(245,240,232,0.28);transform:scale(1.05)}
+
+/* ══════ ABSOLUT COLOR VARIANTS ══════ */
+.ab-subtabs{display:flex;gap:0.4rem;margin-bottom:2rem;flex-wrap:wrap}
+.ab-stab{padding:0.4rem 1.1rem;border-radius:2rem;border:1.5px solid rgba(30,28,24,0.15);background:transparent;font-family:'DM Sans',sans-serif;font-size:0.76rem;letter-spacing:0.06em;cursor:pointer;color:var(--muted);transition:all 0.2s}
+.ab-stab.active,.ab-stab:hover{background:var(--ink);color:var(--white);border-color:var(--ink)}
+
+.ab-subgroup{margin-bottom:3rem}
+.ab-subgroup.hidden{display:none}
+.ab-subgroup-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--ink);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.8rem}
+.ab-color-chips{display:flex;gap:0.35rem;align-items:center}
+.chip{width:14px;height:14px;border-radius:50%;display:inline-block;border:1.5px solid rgba(30,28,24,0.15)}
+.chip-red{background:#c0392b}.chip-blue{background:#2471a3}.chip-yellow{background:#d4ac0d}
+
+/* color-coded card backgrounds */
+.ab-img-red{background:linear-gradient(140deg,rgba(192,57,43,0.18),rgba(231,76,60,0.1))}
+.ab-img-blue{background:linear-gradient(140deg,rgba(36,113,163,0.18),rgba(93,173,226,0.1))}
+.ab-img-yellow{background:linear-gradient(140deg,rgba(212,172,13,0.2),rgba(244,208,63,0.12))}
+
+/* color label badge on cards */
+.color-dot-badge{position:absolute;top:0.9rem;right:0.9rem;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.22rem 0.65rem;border-radius:2rem;font-weight:600;z-index:3;color:var(--white)}
+.red-dot{background:#c0392b}.blue-dot{background:#2471a3}.yellow-dot{background:#b7950b}
+
+.ab-color-grid{grid-template-columns:repeat(3,1fr)!important}
+
+/* ══════ BRAND SECTIONS ══════ */
+.brand-section{margin-bottom:5rem}
+.brand-section.hidden{display:none}
+.brand-header{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:start;margin-bottom:2.5rem;padding:2rem 2.5rem;background:var(--white);border-radius:1.2rem;border:1px solid rgba(138,158,123,0.15)}
+.brand-logo-wrap{display:flex;align-items:center;gap:1rem}
+.brand-emoji{font-size:3rem;line-height:1}
+.brand-label{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--terra);margin-bottom:0.3rem}
+.brand-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--ink)}
+.brand-desc{font-size:0.88rem;color:var(--muted);line-height:1.8;margin-top:0.3rem}
+
+/* ══════ RESPONSIVE ══════ */
+@media(max-width:960px){
+  nav{padding:0.85rem 1.2rem}
+  .nav-links li a,.nav-links li span{padding:0.35rem 0.45rem;font-size:0.68rem}
+  .hero{grid-template-columns:1fr;padding:5rem 2rem 3rem}
+  .hero-visual{height:300px}
+  .mission{grid-template-columns:1fr;padding:3rem 2rem;gap:3rem}
+  .mission-photo-grid{grid-template-columns:1fr 1fr}
+  .collections{padding:2rem 2rem 4rem}
+  .products-grid{grid-template-columns:repeat(2,1fr)}
+  .process{padding:4rem 2rem}
+  .process-steps{grid-template-columns:repeat(2,1fr)}
+  .process-steps::before{display:none}
+  .about-hero{padding:6rem 2rem 4rem}
+  .founder-section{grid-template-columns:1fr;padding:4rem 2rem;gap:3rem}
+  .values-section{padding:4rem 2rem}
+  .values-grid{grid-template-columns:1fr}
+  .journey-section{padding:4rem 2rem}
+  .studio-section{padding:4rem 2rem}
+  .studio-grid{grid-template-columns:repeat(2,1fr)}
+  .studio-slot:nth-child(1),.studio-slot:nth-child(4){grid-row:auto;aspect-ratio:1}
+  .impact-section{grid-template-columns:1fr;padding:4rem 2rem;gap:3rem}
+  .gw-hero,.rc-hero{padding:6rem 2rem 3rem}
+  .gw-gallery,.rc-gallery{padding:2rem 2rem 4rem}
+  .gw-grid,.rc-grid{grid-template-columns:repeat(2,1fr)}
+  .gw-card:nth-child(2),.gw-card:nth-child(5),.rc-card:nth-child(2),.rc-card:nth-child(5){margin-top:0}
+  .gw-spotlight,.rc-spotlight{grid-template-columns:1fr;padding:0 2rem 4rem;gap:2rem}
+  .gw-filter-bar,.rc-filter-bar{padding:2rem 2rem 0}
+  .brand-header{grid-template-columns:1fr;gap:1rem;padding:1.5rem}
+  .gw-process{grid-template-columns:1fr;padding:3rem 2rem}
+  .rc-process{grid-template-columns:repeat(2,1fr);padding:3rem 2rem}
+  .rc-stats{grid-template-columns:repeat(2,1fr);padding:2rem}
+  .ft-grid{grid-template-columns:1fr 1fr;padding:3rem 2rem 2rem;gap:2rem}
+  .ft-bottom{padding:1rem 2rem;flex-direction:column;gap:0.4rem}
+  .cta-section{padding:4rem 2rem}
+  .admin-grid{grid-template-columns:1fr}
+  .photo-lb-inner{grid-template-columns:1fr;max-height:none}
+  .photo-lb-img-wrap{max-height:50vh}
+  .photo-lb-img-wrap img{max-height:50vh}
+  .photo-lb-placeholder{max-height:50vh;min-height:200px}
+  .order-lightbox{bottom:0.75rem;padding:0.75rem 0.85rem}
+  .order-lightbox-msg{font-size:0.76rem}
+  .order-lightbox-close{width:22px;height:22px}
+}
+</style>
+</head>
+<body>
+
+<!-- ADMIN — HOME -->
+<div class="admin-overlay" id="homeAdminOverlay">
+  <div class="admin-panel">
+    <button class="admin-close" onclick="closeAdmin('home')">✕</button>
+    <h2 class="admin-title">Manage Gallery Photos</h2>
+    <p class="admin-sub">Upload your own photos for any collection piece. Hit Apply to publish them.</p>
+    <div class="admin-grid" id="homeAdminGrid"></div>
+    <div class="admin-save-row"><span class="save-msg" id="homeSaveMsg">✓ Photos published!</span><button class="btn-save" onclick="applyAndClose('home')">Apply & Close</button></div>
+  </div>
+</div>
+<!-- ADMIN — GLASSWARE -->
+<div class="admin-overlay" id="gwAdminOverlay">
+  <div class="admin-panel">
+    <button class="admin-close" onclick="closeAdmin('gw')">✕</button>
+    <h2 class="admin-title">Manage Glassware Photos</h2>
+    <p class="admin-sub">Upload your own photos for each piece. Hit Apply when done.</p>
+    <div class="admin-grid" id="gwAdminGrid"></div>
+    <div class="admin-save-row"><span class="save-msg" id="gwSaveMsg">✓ Photos published!</span><button class="btn-save" onclick="applyAndClose('gw')">Apply & Close</button></div>
+  </div>
+</div>
+<!-- ADMIN — CLOTH -->
+<div class="admin-overlay" id="rcAdminOverlay">
+  <div class="admin-panel">
+    <button class="admin-close" onclick="closeAdmin('rc')">✕</button>
+    <h2 class="admin-title">Manage Cloth Collection Photos</h2>
+    <p class="admin-sub">Upload your own photos for each textile piece. Hit Apply when done.</p>
+    <div class="admin-grid" id="rcAdminGrid"></div>
+    <div class="admin-save-row"><span class="save-msg" id="rcSaveMsg">✓ Photos published!</span><button class="btn-save" onclick="applyAndClose('rc')">Apply & Close</button></div>
+  </div>
+</div>
+
+<!-- PHOTO LIGHTBOX -->
+<div id="photoLightbox" class="photo-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="photoLbName">
+  <button type="button" class="photo-lb-close" onclick="closePhotoLightbox()" aria-label="Close enlarged photo">✕</button>
+  <div class="photo-lb-inner" onclick="event.stopPropagation()">
+    <div class="photo-lb-img-wrap">
+      <img id="photoLbImg" alt="" style="display:none">
+      <div id="photoLbPh" class="photo-lb-placeholder" aria-hidden="true"></div>
+    </div>
+    <div class="photo-lb-details">
+      <p class="photo-lb-cat" id="photoLbCat"></p>
+      <h3 class="photo-lb-name" id="photoLbName"></h3>
+      <p class="photo-lb-desc" id="photoLbDesc"></p>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo" onclick="showPage('home')">Sustainability <span>by Saloni</span></span>
+  <ul class="nav-links">
+    <li><span id="nav-home" class="active-nav" onclick="showPage('home')">Home</span></li>
+    <li><span id="nav-gw" onclick="showPage('glassware')">Glassware</span></li>
+    <li><span id="nav-rc" onclick="showPage('cloth')">Recycled Cloth</span></li>
+    <li><span id="nav-ab" onclick="showPage('about')">About</span></li>
+    <li><a href="tel:9373132994" class="nav-phone" style="padding:0.4rem 0.8rem">📞 9373132994</a></li>
+    <li><span class="nav-pill" onclick="openAdminForPage()">✎ Manage Photos</span></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════ HOME ══════════════════ -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-text">
+      <span class="hero-tag">✦ Sustainably Handcrafted</span>
+      <h1>Beauty born from <em>what was</em> discarded</h1>
+      <p class="hero-desc">We transform liquor bottles into elegant glasses, vases and platters — and breathe new life into reclaimed fabrics as cushion covers, bed sheets, and handcrafted bags.</p>
+      <div class="hero-btns">
+        <span class="btn-primary" onclick="showPage('glassware')">Explore Glassware</span>
+        <span class="btn-outline" onclick="showPage('cloth')">Recycled Cloth →</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-main-card">
+        <div class="hero-card-inner">
+          <svg class="hero-bottle-svg" viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="45" y="10" width="30" height="20" rx="4" fill="rgba(74,96,64,0.4)"/>
+            <path d="M38 30 Q35 60 32 80 L20 180 Q20 190 60 190 Q100 190 100 180 L88 80 Q85 60 82 30 Z" fill="rgba(138,158,123,0.5)" stroke="rgba(74,96,64,0.6)" stroke-width="1.5"/>
+            <path d="M38 30 Q35 60 32 80 L20 180 Q20 190 60 190 Q100 190 100 180 L88 80 Q85 60 82 30 Z" fill="url(#bG)"/>
+            <defs><linearGradient id="bG" x1="20" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="rgba(255,255,255,0.3)"/><stop offset="40%" stop-color="rgba(255,255,255,0)"/><stop offset="100%" stop-color="rgba(0,0,0,0.1)"/></linearGradient></defs>
+            <ellipse cx="60" cy="190" rx="40" ry="5" fill="rgba(74,96,64,0.2)"/>
+            <line x1="32" y1="110" x2="88" y2="110" stroke="rgba(74,96,64,0.3)" stroke-width="1"/>
+            <line x1="28" y1="145" x2="92" y2="145" stroke="rgba(74,96,64,0.2)" stroke-width="1"/>
+          </svg>
+          <span class="hero-card-label">Bottle → Glass</span>
+        </div>
+      </div>
+      <div class="hero-accent-card">
+        <p class="hero-accent-title">Pieces Upcycled</p>
+        <p class="hero-accent-num">2,400+</p>
+        <p class="hero-accent-sub">since 2023 · zero landfill</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>Handcrafted Glasses</span><span class="dot">◆</span><span>Upcycled Fabric</span><span class="dot">◆</span><span>Sustainable Living</span><span class="dot">◆</span><span>Zero Waste</span><span class="dot">◆</span><span>Artisan Made</span><span class="dot">◆</span><span>Bottle to Glass</span><span class="dot">◆</span><span>Recycled Cushions</span><span class="dot">◆</span><span>Eco Luxury</span><span class="dot">◆</span>
+      <span>Handcrafted Glasses</span><span class="dot">◆</span><span>Upcycled Fabric</span><span class="dot">◆</span><span>Sustainable Living</span><span class="dot">◆</span><span>Zero Waste</span><span class="dot">◆</span><span>Artisan Made</span><span class="dot">◆</span><span>Bottle to Glass</span><span class="dot">◆</span><span>Recycled Cushions</span><span class="dot">◆</span><span>Eco Luxury</span><span class="dot">◆</span>
+    </div>
+  </div>
+
+  <!-- MISSION — with inline photo upload -->
+  <section class="mission" id="about">
+    <div>
+      <p class="mission-label">✦ Our Mission</p>
+      <h2>Every piece carries a second life</h2>
+      <p>We believe that discarded things hold extraordinary potential. Our artisans hand-cut and fire-polish liquor bottles into one-of-a-kind drinking glasses, flower vases and serving platters — each bearing the unique character of its former life.</p>
+      <p>Our textile studio collects pre-loved and surplus fabrics, transforming them into beautifully sewn cushion covers, premium bed sheets, and robust tote bags. Nothing goes to waste.</p>
+      <div class="mission-stats">
+        <div><p class="stat-num">600+</p><p class="stat-label">Bottles transformed</p></div>
+        <div><p class="stat-num">1,800+</p><p class="stat-label">Fabric pieces reborn</p></div>
+        <div><p class="stat-num">0 kg</p><p class="stat-label">Sent to landfill</p></div>
+      </div>
+    </div>
+    <!-- PHOTO UPLOAD SLOTS -->
+    <div class="mission-photo-grid">
+      <div class="mission-photo-slot" id="mslot-1" onclick="triggerMissionUpload(1)">
+        <div class="mission-upload-label">
+          <span class="mission-upload-icon">🍾</span>
+          <span class="mission-upload-text">Add Photo</span>
+        </div>
+        <button class="mission-clear-btn" onclick="clearMissionPhoto(event,1)">✕</button>
+        <input type="file" accept="image/*" id="mfile-1" onchange="handleMissionFile(event,1)">
+      </div>
+      <div class="mission-photo-slot" id="mslot-2" onclick="triggerMissionUpload(2)">
+        <div class="mission-upload-label">
+          <span class="mission-upload-icon">🧵</span>
+          <span class="mission-upload-text">Add Photo</span>
+        </div>
+        <button class="mission-clear-btn" onclick="clearMissionPhoto(event,2)">✕</button>
+        <input type="file" accept="image/*" id="mfile-2" onchange="handleMissionFile(event,2)">
+      </div>
+    </div>
+  </section>
+
+  <section class="collections" id="collections">
+    <div class="section-header"><span class="section-tag">✦ Our Work</span><h2>Our Collections</h2></div>
+    <div class="collection-tabs">
+      <button class="tab-btn active" onclick="filterHome('all',this)">All</button>
+      <button class="tab-btn" onclick="filterHome('glass',this)">Glassware</button>
+      <button class="tab-btn" onclick="filterHome('fabric',this)">Recycled Cloth</button>
+    </div>
+    <div class="products-grid" id="homeGrid">
+      <div class="product-card visible" data-cat="glass"><div class="p-img p-glass" id="himg-glass"><span class="ph">🥂</span><span class="p-badge">Bestseller</span></div><div class="p-info"><p class="p-cat">Glassware</p><p class="p-name">Vintage Cut Glass</p><p class="p-desc">Hand-cut from premium liquor bottles, fire-polished for a smooth rim. Uniquely shaped every time.</p></div></div>
+      <div class="product-card visible" data-cat="glass"><div class="p-img p-vase" id="himg-vase"><span class="ph">🌿</span></div><div class="p-info"><p class="p-cat">Glassware</p><p class="p-name">Botanica Vase</p><p class="p-desc">A wine bottle reborn as a slender elegant vase. Subtle embossing from original labels adds texture.</p></div></div>
+      <div class="product-card visible" data-cat="glass"><div class="p-img p-platter" id="himg-platter"><span class="ph">🫙</span><span class="p-badge">New</span></div><div class="p-info"><p class="p-cat">Glassware</p><p class="p-name">Sunken Platter</p><p class="p-desc">Wide-mouth bottles slumped in a kiln to create beautiful flat serving platters.</p></div></div>
+      <div class="product-card visible" data-cat="fabric"><div class="p-img p-cushion" id="himg-cushion"><span class="ph">🛋️</span><span class="p-badge">Bestseller</span></div><div class="p-info"><p class="p-cat">Recycled Cloth</p><p class="p-name">Patchwork Cushion Cover</p><p class="p-desc">Crafted from assorted reclaimed cotton and silk offcuts. Every piece is a one-of-a-kind collage.</p></div></div>
+      <div class="product-card visible" data-cat="fabric"><div class="p-img p-sheets" id="himg-sheets"><span class="ph">🛏️</span></div><div class="p-info"><p class="p-cat">Recycled Cloth</p><p class="p-name">Heritage Bed Sheet Set</p><p class="p-desc">Woven from surplus cotton yarns and pre-loved panels. Soft, breathable, and eco-safe dyes.</p></div></div>
+      <div class="product-card visible" data-cat="fabric"><div class="p-img p-bag" id="himg-bag"><span class="ph">👜</span><span class="p-badge">New</span></div><div class="p-info"><p class="p-cat">Recycled Cloth</p><p class="p-name">Artisan Handbag</p><p class="p-desc">Structured bag handstitched from reclaimed denim and canvas. Reinforced handles, inner pocket.</p></div></div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="section-header"><span class="section-tag">✦ How It Works</span><h2>From discarded to desired</h2></div>
+    <div class="process-steps">
+      <div class="step-card"><div class="step-num">01</div><div class="step-icon">♻️</div><p class="step-title">We Collect</p><p class="step-desc">We source liquor bottles from bars and households, and gather fabric offcuts from tailors and mills.</p></div>
+      <div class="step-card"><div class="step-num">02</div><div class="step-icon">🔧</div><p class="step-title">We Craft</p><p class="step-desc">Artisans score, cut and fire-polish bottles. Textile makers wash, sort and stitch fabrics with care.</p></div>
+      <div class="step-card"><div class="step-num">03</div><div class="step-icon">✨</div><p class="step-title">We Refine</p><p class="step-desc">Each piece is quality-checked, smoothed, and finished to meet our standards for beauty and function.</p></div>
+      <div class="step-card"><div class="step-num">04</div><div class="step-icon">📦</div><p class="step-title">We Deliver</p><p class="step-desc">Packed in recycled paper with a note telling the story of your piece's former life.</p></div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Get in touch with us</h2>
+    <p>Reach out to enquire about any piece or place a custom order.</p>
+    <div style="margin-top:1rem"><a href="tel:9373132994" style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--white);text-decoration:none;letter-spacing:0.05em">📞 9373132994</a></div>
+  </section>
+
+  <div class="ft">
+    <div class="ft-grid">
+      <div><p class="ft-brand">Sustainability <span>by Saloni</span></p><p class="ft-desc">Sustainable creations handcrafted with love — one bottle and one stitch at a time.</p><a href="tel:9373132994" class="ft-phone">📞 9373132994</a></div>
+      <div class="ft-col"><h4>Collections</h4><a onclick="showPage('glassware')">Glassware</a><a onclick="showPage('cloth')">Recycled Cloth</a><a href="#">Vases</a><a href="#">Platters</a></div>
+      <div class="ft-col"><h4>Company</h4><a onclick="showPage('about')">About Us</a><a href="#">The Process</a><a href="#">Artisans</a><a href="#">Sustainability</a></div>
+      <div class="ft-col"><h4>Contact</h4><a href="https://www.instagram.com/sustainability_by_saloni" target="_blank">📷 @sustainability_by_saloni</a><a href="#">WhatsApp</a><a href="tel:9373132994">9373132994</a><a href="#">Pune, India</a></div>
+    </div>
+    <div class="ft-bottom"><span class="ft-copy">© 2026 Sustainability by Saloni. All rights reserved.</span><span class="ft-copy">Made with ♻️ in Pune</span></div>
+  </div>
+</div><!-- /home -->
+
+
+<!-- ══════════════════ ABOUT PAGE ══════════════════ -->
+<div id="page-about" class="page">
+
+  <!-- HERO -->
+  <div class="about-hero">
+    <span class="about-hero-tag">✦ Our Story</span>
+    <h1>Crafted with <em>purpose</em>,<br>rooted in Pune</h1>
+    <p class="about-hero-p">Sustainability by Saloni began with a single broken bottle and a stubborn belief that nothing beautiful should ever be thrown away. Today we're a small, passionate studio turning discarded glass and surplus cloth into pieces people treasure.</p>
+  </div>
+
+  <!-- FOUNDER PHOTO ONLY -->
+  <section class="founder-section" style="grid-template-columns:1fr;max-width:480px;margin:0 auto;padding:4rem 4rem 2rem">
+    <div class="founder-img-wrap">
+      <div class="founder-img" id="founder-img" onclick="document.getElementById('founder-file').click()">
+        <div class="founder-img-upload">
+          <span class="founder-img-icon">👤</span>
+          <span class="founder-img-text" style="font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-dark);font-weight:500">Add Founder Photo</span>
+        </div>
+        <button class="founder-clear" onclick="clearFounderPhoto(event)">✕</button>
+        <input type="file" accept="image/*" id="founder-file" style="display:none" onchange="handleFounderFile(event)">
+      </div>
+      <div class="founder-badge">
+        <p class="founder-badge-label">Founded in</p>
+        <p class="founder-badge-text">Pune, 2023</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-section">
+    <div class="section-header"><span class="section-tag">✦ What We Stand For</span><h2>Our values</h2></div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">♻️</div>
+        <p class="value-title">Zero Waste, Always</p>
+        <p class="value-text">We never send anything to landfill. Every offcut, every shard, every thread is either used or responsibly returned. Our zero-waste commitment isn't a marketing claim — it's the foundation every decision is built on.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <p class="value-title">People Over Production</p>
+        <p class="value-text">We work with local artisans in Pune who are fairly paid and deeply skilled. We believe slow, hand-made production creates better objects and better livelihoods. We will never scale at the cost of the people who make our work possible.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">✨</div>
+        <p class="value-title">Beauty Is Not Optional</p>
+        <p class="value-text">Sustainable products don't have to look utilitarian. We obsess over the finish of every glass rim, the stitch of every cushion seam. If it isn't beautiful, we won't sell it. Sustainability and elegance belong together.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌱</div>
+        <p class="value-title">Rooted in Community</p>
+        <p class="value-text">Our materials come from Pune's bars, tailors, mills and households. We give back by sourcing locally, employing locally and donating unsellable scraps to local schools for art programmes.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🔍</div>
+        <p class="value-title">Radical Transparency</p>
+        <p class="value-text">Every product carries a small label telling you where its material came from — which bar, which tailor, which neighbourhood. You deserve to know the full story of what you own.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🧠</div>
+        <p class="value-title">Curiosity Over Convention</p>
+        <p class="value-text">We are constantly experimenting — new bottle shapes, new fabric combinations, new finishes. If something has been discarded, we want to know how it can surprise us. Creativity is our most sustainable resource.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDIO PHOTOS -->
+  <section class="studio-section">
+    <div class="section-header"><span class="section-tag">✦ purpose is our objective</span><h2>Collage</h2></div>
+    <div class="studio-grid">
+      <div class="studio-slot" id="ss-1" onclick="triggerStudioUpload(1)">
+        <div class="studio-slot-label"><span class="studio-slot-icon">📸</span><span class="studio-slot-text">Add Photo</span></div>
+        <button class="studio-clear" onclick="clearStudioPhoto(event,1)">✕</button>
+        <input type="file" accept="image/*" id="sfile-1" onchange="handleStudioFile(event,1)">
+      </div>
+      <div class="studio-slot" id="ss-2" onclick="triggerStudioUpload(2)">
+        <div class="studio-slot-label"><span class="studio-slot-icon">📸</span><span class="studio-slot-text">Add Photo</span></div>
+        <button class="studio-clear" onclick="clearStudioPhoto(event,2)">✕</button>
+        <input type="file" accept="image/*" id="sfile-2" onchange="handleStudioFile(event,2)">
+      </div>
+      <div class="studio-slot" id="ss-3" onclick="triggerStudioUpload(3)">
+        <div class="studio-slot-label"><span class="studio-slot-icon">📸</span><span class="studio-slot-text">Add Photo</span></div>
+        <button class="studio-clear" onclick="clearStudioPhoto(event,3)">✕</button>
+        <input type="file" accept="image/*" id="sfile-3" onchange="handleStudioFile(event,3)">
+      </div>
+      <div class="studio-slot" id="ss-4" onclick="triggerStudioUpload(4)">
+        <div class="studio-slot-label"><span class="studio-slot-icon">📸</span><span class="studio-slot-text">Add Photo</span></div>
+        <button class="studio-clear" onclick="clearStudioPhoto(event,4)">✕</button>
+        <input type="file" accept="image/*" id="sfile-4" onchange="handleStudioFile(event,4)">
+      </div>
+      <div class="studio-slot" id="ss-5" onclick="triggerStudioUpload(5)">
+        <div class="studio-slot-label"><span class="studio-slot-icon">📸</span><span class="studio-slot-text">Add Photo</span></div>
+        <button class="studio-clear" onclick="clearStudioPhoto(event,5)">✕</button>
+        <input type="file" accept="image/*" id="sfile-5" onchange="handleStudioFile(event,5)">
+      </div>
+      <div class="studio-slot" id="ss-6" onclick="triggerStudioUpload(6)">
+        <div class="studio-slot-label"><span class="studio-slot-icon">📸</span><span class="studio-slot-text">Add Photo</span></div>
+        <button class="studio-clear" onclick="clearStudioPhoto(event,6)">✕</button>
+        <input type="file" accept="image/*" id="sfile-6" onchange="handleStudioFile(event,6)">
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="impact-section">
+    <div class="impact-nums">
+      <div class="impact-num-card"><p class="impact-num">600+</p><p class="impact-label">Bottles upcycled</p></div>
+      <div class="impact-num-card"><p class="impact-num">1,800+</p><p class="impact-label">Fabric pieces reborn</p></div>
+      <div class="impact-num-card"><p class="impact-num">20+</p><p class="impact-label">Local artisans employed</p></div>
+      <div class="impact-num-card"><p class="impact-num">0 kg</p><p class="impact-label">Sent to landfill ever</p></div>
+    </div>
+    <div class="impact-text">
+      <h2>Small studio. Real impact.</h2>
+      <p>We are not a large company and we never intend to be. Every number here represents a real bottle saved, a real piece of cloth given a second chance, and a real person in Pune who made it happen with their hands.</p>
+      <p>Our commitment to sustainability is not a trend or a selling point. It is the entire reason we exist. Every decision we make — from the bottles we choose to the packaging we use — is made with the Earth in mind.</p>
+      <ul>
+        <li>All packaging is recycled or seed paper</li>
+        <li>No synthetic dyes used in textile finishing</li>
+        <li>All waste glass is returned to recyclers</li>
+        <li>Solar-assisted workshop lighting since 2023</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Come visit us in Pune</h2>
+    <p>We'd love to show you the studio. Call us to arrange a visit or just to say hello.</p>
+    <div style="margin-top:1rem"><a href="tel:9373132994" style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--white);text-decoration:none;letter-spacing:0.05em">📞 9373132994</a></div>
+  </section>
+
+  <div class="ft">
+    <div class="ft-grid">
+      <div><p class="ft-brand">Sustainability <span>by Saloni</span></p><p class="ft-desc">Sustainable creations handcrafted with love — one bottle and one stitch at a time.</p><a href="tel:9373132994" class="ft-phone">📞 9373132994</a></div>
+      <div class="ft-col"><h4>Collections</h4><a onclick="showPage('glassware')">Glassware</a><a onclick="showPage('cloth')">Recycled Cloth</a></div>
+      <div class="ft-col"><h4>Company</h4><a onclick="showPage('about')">About Us</a><a href="#">The Process</a><a href="#">Artisans</a></div>
+      <div class="ft-col"><h4>Contact</h4><a href="https://www.instagram.com/sustainability_by_saloni" target="_blank">📷 @sustainability_by_saloni</a><a href="#">WhatsApp</a><a href="tel:9373132994">9373132994</a><a href="#">Pune, India</a></div>
+    </div>
+    <div class="ft-bottom"><span class="ft-copy">© 2025 Sustainability by Saloni. All rights reserved.</span><span class="ft-copy">Made with ♻️ in Pune</span></div>
+  </div>
+</div><!-- /about -->
+
+
+<!-- ══════════════════ GLASSWARE ══════════════════ -->
+<div id="page-glassware" class="page">
+  <div class="gw-hero">
+    <span class="gw-tag">✦ Upcycled Glassware Collection</span>
+    <h1>Bottles reborn as <em>art</em></h1>
+    <p class="gw-hero-p">Every glass, vase and platter starts as a discarded liquor or wine bottle. Our artisans hand-score, cut and fire-polish each piece into something beautiful — one of a kind, every time.</p>
+    <div class="gw-hero-btns">
+      <a href="#gw-gallery" class="btn-primary">View Collection</a>
+      <span class="btn-outline" onclick="showPage('home')">← Back to Home</span>
+    </div>
+  </div>
+  <!-- BRAND TABS -->
+  <div class="gw-filter-bar" style="flex-wrap:wrap;gap:0.4rem">
+    <button class="gw-fb active" onclick="filterGW('all',this)">All Brands</button>
+    <button class="gw-fb" onclick="filterGW('oldmonk',this)">Old Monk</button>
+    <button class="gw-fb" onclick="filterGW('absolut',this)">Absolut</button>
+    <button class="gw-fb" onclick="filterGW('johnnie',this)">Johnnie Walker</button>
+    <button class="gw-fb" onclick="filterGW('indri',this)">Indri</button>
+    <button class="gw-fb" onclick="filterGW('greygoose',this)">Grey Goose</button>
+    <button class="gw-fb" onclick="filterGW('bombay',this)">Bombay Sapphire</button>
+    <button class="gw-fb" onclick="filterGW('heineken',this)">Heineken</button>
+    <button class="gw-fb" onclick="filterGW('glenfiddich',this)">Glenfiddich</button>
+    <button class="gw-fb" onclick="filterGW('antiquity',this)">Antiquity</button>
+  </div>
+
+  <section class="gw-gallery" id="gw-gallery">
+    <div class="manage-row"><button class="mgbtn" onclick="openAdmin('gw')">📷 Manage Photos</button></div>
+
+    <!-- ── OLD MONK ── -->
+    <div class="brand-section" id="brand-oldmonk">
+      <div class="brand-header">
+        <div class="brand-logo-wrap">
+          <span class="brand-emoji">🍺</span>
+          <div>
+            <p class="brand-label">✦ Old Monk Collection</p>
+            <h3 class="brand-title">Old Monk</h3>
+          </div>
+        </div>
+        <p class="brand-desc">India's most loved rum bottle, reborn. The thick amber glass of Old Monk makes for especially warm-toned glasses, platters and ash trays with a character all their own.</p>
+      </div>
+      <div class="gw-grid">
+        <div class="gw-card" data-gwcat="oldmonk"><div class="gw-img gi-glass" id="gwimg-om-glass"><span class="ph">🥂</span><span class="gw-badge">Bestseller</span></div><div class="gw-info"><p class="gw-cat">Old Monk</p><p class="gw-name">Old Monk Glass</p><p class="gw-desc">Hand-cut from the iconic Old Monk bottle. The amber-brown glass gives each tumbler a warm, whisky-like glow. No two are identical.</p></div></div>
+        <div class="gw-card" data-gwcat="oldmonk"><div class="gw-img gi-platter" id="gwimg-om-platter"><span class="ph">🫙</span></div><div class="gw-info"><p class="gw-cat">Old Monk</p><p class="gw-name">Old Monk Platter</p><p class="gw-desc">The wide base of the Old Monk bottle is kiln-slumped flat into a rustic serving platter. Rich amber tones make it a striking table centrepiece.</p></div></div>
+        <div class="gw-card" data-gwcat="oldmonk"><div class="gw-img gi-shot" id="gwimg-om-ashtray"><span class="ph">🪔</span><span class="gw-badge nb">New</span></div><div class="gw-info"><p class="gw-cat">Old Monk</p><p class="gw-name">Old Monk Ash Tray</p><p class="gw-desc">The thick glass base of Old Monk, cut and smoothed into a deep, heavy-set ash tray. Sturdy, elegant and entirely upcycled.</p></div></div>
+        <div class="gw-card" data-gwcat="oldmonk"><div class="gw-img gi-set" id="gwimg-om-set"><span class="ph">🫗</span><span class="gw-badge">Popular</span></div><div class="gw-info"><p class="gw-cat">Old Monk</p><p class="gw-name">Old Monk Set</p><p class="gw-desc">The complete Old Monk collection — 2 glasses, 1 platter and 1 ash tray, all from the same batch of bottles. A perfectly matched amber set.</p></div></div>
+      </div>
+    </div>
+
+    <!-- ── ABSOLUT ── -->
+    <div class="brand-section" id="brand-absolut">
+      <div class="brand-header">
+        <div class="brand-logo-wrap">
+          <span class="brand-emoji">🫙</span>
+          <div>
+            <p class="brand-label">✦ Absolut Collection</p>
+            <h3 class="brand-title">Absolut</h3>
+          </div>
+        </div>
+        <p class="brand-desc">The clean, cylindrical Absolut vodka bottle transforms into sleek, modern pieces — available in three signature colours: <strong style="color:#c0392b">Red</strong>, <strong style="color:#2471a3">Blue</strong> and <strong style="color:#b7950b">Yellow</strong>. Each colour is painted and kiln-fired onto the upcycled glass for a lasting, food-safe finish.</p>
+      </div>
+
+      <!-- Absolut sub-filter tabs -->
+      <div class="ab-subtabs" id="ab-subtabs">
+        <button class="ab-stab active" onclick="filterAbsolut('all',this)">All</button>
+        <button class="ab-stab" onclick="filterAbsolut('ab-glass',this)">Glasses</button>
+        <button class="ab-stab" onclick="filterAbsolut('ab-mini',this)">Mini Glasses</button>
+        <button class="ab-stab" onclick="filterAbsolut('ab-soap',this)">Soap Dispensers</button>
+        <button class="ab-stab" onclick="filterAbsolut('ab-cook',this)">Cooking Dispensers</button>
+      </div>
+
+      <!-- ── ABSOLUT GLASSES (full size, 3 colours) ── -->
+      <div class="ab-subgroup" id="absg-ab-glass">
+        <p class="ab-subgroup-title">Absolut Glass <span class="ab-color-chips"><span class="chip chip-red"></span><span class="chip chip-blue"></span><span class="chip chip-yellow"></span></span></p>
+        <div class="gw-grid ab-color-grid">
+          <div class="gw-card" data-abcat="ab-glass">
+            <div class="gw-img ab-img-red" id="gwimg-ab-glass-red"><span class="ph">🥂</span><span class="gw-badge">Bestseller</span><span class="color-dot-badge red-dot">Red</span></div>
+            <div class="gw-info"><p class="gw-cat">Absolut · Glass</p><p class="gw-name">Absolut Glass — Red</p><p class="gw-desc">A tall, fire-polished Absolut glass with a bold red colour-fired finish. Striking at the dinner table or as a standalone piece.</p></div>
+          </div>
+          <div class="gw-card" data-abcat="ab-glass">
+            <div class="gw-img ab-img-blue" id="gwimg-ab-glass-blue"><span class="ph">🥂</span><span class="color-dot-badge blue-dot">Blue</span></div>
+            <div class="gw-info"><p class="gw-cat">Absolut · Glass</p><p class="gw-name">Absolut Glass — Blue</p><p class="gw-desc">The iconic Absolut silhouette in a deep cobalt blue finish. Cool, sleek and Scandinavian — fire-polished to a smooth rim.</p></div>
+          </div>
+          <div class="gw-card" data-abcat="ab-glass">
+            <div class="gw-img ab-img-yellow" id="gwimg-ab-glass-yellow"><span class="ph">🥂</span><span class="color-dot-badge yellow-dot">Yellow</span></div>
+            <div class="gw-info"><p class="gw-cat">Absolut · Glass</p><p class="gw-name">Absolut Glass — Yellow</p><p class="gw-desc">A sunny, warm-toned Absolut glass with a golden yellow finish. Cheerful and elegant — perfect for summer tables.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ABSOLUT MINI GLASSES (3 colours) ── -->
+      <div class="ab-subgroup" id="absg-ab-mini">
+        <p class="ab-subgroup-title">Absolut Mini Glass <span class="ab-color-chips"><span class="chip chip-red"></span><span class="chip chip-blue"></span><span class="chip chip-yellow"></span></span></p>
+        <div class="gw-grid ab-color-grid">
+          <div class="gw-card" data-abcat="ab-mini">
+            <div class="gw-img ab-img-red" id="gwimg-ab-mini-red"><span class="ph">🥃</span><span class="gw-badge nb">New</span><span class="color-dot-badge red-dot">Red</span></div>
+            <div class="gw-info"><p class="gw-cat">Absolut · Mini Glass</p><p class="gw-name">Absolut Mini Glass — Red</p><p class="gw-desc">A petite cut from the Absolut bottle neck — a charming mini glass in bold red. Great for shots, espresso or a cute votive.</p></div>
+          </div>
+          <div class="gw-card" data-abcat="ab-mini">
+            <div class="gw-img ab-img-blue" id="gwimg-ab-mini-blue"><span class="ph">🥃</span><span class="gw-badge nb">New</span><span class="color-dot-badge blue-dot">Blue</span></div>
+            <div class="gw-info"><p class="gw-cat">Absolut · Mini Glass</p><p class="gw-name">Absolut Mini Glass — Blue</p><p class="gw-desc">The neck of the Absolut bottle cut short and colour-fired in cobalt blue. A tiny, striking piece with enormous personality.</p></div>
+          </div>
+          <div class="gw-card" data-abcat="ab-mini">
+            <div class="gw-img ab-img-yellow" id="gwimg-ab-mini-yellow"><span class="ph">🥃</span><span class="gw-badge nb">New</span><span class="color-dot-badge yellow-dot">Yellow</span></div>
+            <div class="gw-info"><p class="gw-cat">Absolut · Mini Glass</p><p class="gw-name">Absolut Mini Glass — Yellow</p><p class="gw-desc">A sunshine-yellow mini Absolut glass — the perfect size for a shot, a candle or a tiny bud vase on your windowsill.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ABSOLUT SOAP DISPENSERS (3 colours) ── -->
+      <div class="ab-subgroup" id="absg-ab-soap">
+        <p class="ab-subgroup-title">Absolut Soap Dispenser <span class="ab-color-chips"><span class="chip chip-red"></span><span class="chip chip-blue"></span><span class="chip chip-yellow"></span></span></p>
+        <div class="gw-grid ab-color-grid">
+          <div class="gw-card" data-abcat="ab-soap">
+            <div class="gw-img ab-img-red" id="gwimg-ab-soap-red"><span class="ph">🧴</span><span class="gw-badge">Popular</span><span class="color-dot-badge red-dot">Red</span></div>
+            <div class="gw-info"><p class="gw-cat">Absolut · Soap Dispenser</p><p class="gw-name">Soap Dispenser — Red</p><p class="gw-desc">A whole Absolut bottle converted into a refillable soap dispenser with a stainless pump top. Bold red finish — a showstopper at any sink.</p></div>
+          </div>
+          <div class="gw-card" data-abcat="ab-soap">
+            <div class="gw-img ab-img-blue" id="gwimg-ab-soap-blue"><span class="ph">🧴</span><span class="color-dot-badge blue-dot">Blue</span></div>
+            <div class="gw-info"><p class="gw-cat">Absolut · Soap Dispenser</p><p class="gw-name">Soap Dispenser — Blue</p><p class="gw-desc">A cobalt-blue Absolut dispenser with a stainless pump. Pairs beautifully with a blue mini glass in a matching bathroom set.</p></div>
+          </div>
+          <div class="gw-card" data-abcat="ab-soap">
+            <div class="gw-img ab-img-yellow" id="gwimg-ab-soap-yellow"><span class="ph">🧴</span><span class="color-dot-badge yellow-dot">Yellow</span></div>
+            <div class="gw-info"><p class="gw-cat">Absolut · Soap Dispenser</p><p class="gw-name">Soap Dispenser — Yellow</p><p class="gw-desc">Sunny yellow Absolut soap dispenser with a matte silver pump. Brightens any bathroom or kitchen counter instantly.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ABSOLUT COOKING DISPENSERS (3 colours) ── -->
+      <div class="ab-subgroup" id="absg-ab-cook">
+        <p class="ab-subgroup-title">Absolut Cooking Dispenser <span class="ab-color-chips"><span class="chip chip-red"></span><span class="chip chip-blue"></span><span class="chip chip-yellow"></span></span></p>
+        <div class="gw-grid ab-color-grid">
+          <div class="gw-card" data-abcat="ab-cook">
+            <div class="gw-img ab-img-red" id="gwimg-ab-cook-red"><span class="ph">🫒</span><span class="gw-badge nb">New</span><span class="color-dot-badge red-dot">Red</span></div>
+            <div class="gw-info"><p class="gw-cat">Absolut · Cooking Dispenser</p><p class="gw-name">Cooking Dispenser — Red</p><p class="gw-desc">An Absolut bottle fitted with a food-safe pouring spout — perfect for olive oil, vinegar or soy sauce. Red finish for a bold kitchen counter statement.</p></div>
+          </div>
+          <div class="gw-card" data-abcat="ab-cook">
+            <div class="gw-img ab-img-blue" id="gwimg-ab-cook-blue"><span class="ph">🫒</span><span class="gw-badge nb">New</span><span class="color-dot-badge blue-dot">Blue</span></div>
+            <div class="gw-info"><p class="gw-cat">Absolut · Cooking Dispenser</p><p class="gw-name">Cooking Dispenser — Blue</p><p class="gw-desc">A cool blue Absolut cooking dispenser with a stainless pour spout. Sleek enough to leave on the table, functional enough for daily use.</p></div>
+          </div>
+          <div class="gw-card" data-abcat="ab-cook">
+            <div class="gw-img ab-img-yellow" id="gwimg-ab-cook-yellow"><span class="ph">🫒</span><span class="gw-badge nb">New</span><span class="color-dot-badge yellow-dot">Yellow</span></div>
+            <div class="gw-info"><p class="gw-cat">Absolut · Cooking Dispenser</p><p class="gw-name">Cooking Dispenser — Yellow</p><p class="gw-desc">A vibrant yellow cooking dispenser made from an Absolut bottle — cheerful, functional and entirely upcycled. A kitchen essential with character.</p></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── JOHNNIE WALKER ── -->
+    <div class="brand-section" id="brand-johnnie">
+      <div class="brand-header">
+        <div class="brand-logo-wrap">
+          <span class="brand-emoji">🥃</span>
+          <div>
+            <p class="brand-label">✦ Johnnie Walker Collection</p>
+            <h3 class="brand-title">Johnnie Walker</h3>
+          </div>
+        </div>
+        <p class="brand-desc">The distinctively angled Johnnie Walker bottle produces uniquely shaped pieces — each one carries the recognisable character of the world's most iconic Scotch whisky.</p>
+      </div>
+      <div class="gw-grid">
+        <div class="gw-card" data-gwcat="johnnie"><div class="gw-img gi-glass" id="gwimg-jw-glass"><span class="ph">🥂</span><span class="gw-badge">Popular</span></div><div class="gw-info"><p class="gw-cat">Johnnie Walker</p><p class="gw-name">Johnnie Walker Glass</p><p class="gw-desc">The squared profile of the Johnnie Walker bottle makes for a distinctive whisky glass with angular character and a deep golden tone.</p></div></div>
+        <div class="gw-card" data-gwcat="johnnie"><div class="gw-img gi-platter" id="gwimg-jw-platter"><span class="ph">🫙</span><span class="gw-badge nb">New</span></div><div class="gw-info"><p class="gw-cat">Johnnie Walker</p><p class="gw-name">Johnnie Walker Platter</p><p class="gw-desc">Slumped from JW's wide-shouldered bottle into an asymmetric platter with subtle golden-amber tones. A collector's piece for whisky lovers.</p></div></div>
+        <div class="gw-card" data-gwcat="johnnie"><div class="gw-img gi-set" id="gwimg-jw-set"><span class="ph">🫗</span></div><div class="gw-info"><p class="gw-cat">Johnnie Walker</p><p class="gw-name">Johnnie Walker Gift Set</p><p class="gw-desc">2 whisky glasses + 1 platter all born from the same JW bottles. The ideal gift for the whisky enthusiast in your life.</p></div></div>
+      </div>
+    </div>
+
+    <!-- ── INDRI ── -->
+    <div class="brand-section" id="brand-indri">
+      <div class="brand-header">
+        <div class="brand-logo-wrap">
+          <span class="brand-emoji">🏔️</span>
+          <div>
+            <p class="brand-label">✦ Indri Collection</p>
+            <h3 class="brand-title">Indri</h3>
+          </div>
+        </div>
+        <p class="brand-desc">India's award-winning craft whisky bottle has a beautiful form — tall, elegant and weighty. We transform it into three sizes of drinking glass, each showing off the bottle's distinctive character.</p>
+      </div>
+      <div class="gw-grid">
+        <div class="gw-card" data-gwcat="indri"><div class="gw-img gi-glass" id="gwimg-indri-big"><span class="ph">🥂</span><span class="gw-badge">Popular</span></div><div class="gw-info"><p class="gw-cat">Indri</p><p class="gw-name">Indri Big Glass</p><p class="gw-desc">Cut from the tall body of the Indri bottle, this generous big glass is ideal for whisky on the rocks or long cocktails. Weighty, elegant and handsome.</p></div></div>
+        <div class="gw-card" data-gwcat="indri"><div class="gw-img gi-shot" id="gwimg-indri-short"><span class="ph">🥃</span><span class="gw-badge nb">New</span></div><div class="gw-info"><p class="gw-cat">Indri</p><p class="gw-name">Indri Short Glass</p><p class="gw-desc">A compact, sturdy short glass cut from the lower section of the Indri bottle — the old-fashioned of the collection. Perfect for neat pours.</p></div></div>
+        <div class="gw-card" data-gwcat="indri"><div class="gw-img gi-decanter" id="gwimg-indri-long"><span class="ph">🍸</span></div><div class="gw-info"><p class="gw-cat">Indri</p><p class="gw-name">Indri Long Glass</p><p class="gw-desc">The tallest cut from the Indri bottle — a slender long glass with an impressive height. Ideal for highballs, mocktails and making a statement.</p></div></div>
+      </div>
+    </div>
+
+    <!-- ── GREY GOOSE ── -->
+    <div class="brand-section" id="brand-greygoose">
+      <div class="brand-header">
+        <div class="brand-logo-wrap">
+          <span class="brand-emoji">🦢</span>
+          <div>
+            <p class="brand-label">✦ Grey Goose Collection</p>
+            <h3 class="brand-title">Grey Goose</h3>
+          </div>
+        </div>
+        <p class="brand-desc">The frosted, blue-tinted Grey Goose bottle is one of the most beautiful in the bar. We preserve that beauty by transforming it into glasses, a jug, and a complete set.</p>
+      </div>
+      <div class="gw-grid">
+        <div class="gw-card" data-gwcat="greygoose"><div class="gw-img gi-glass" id="gwimg-gg-big"><span class="ph">🥂</span><span class="gw-badge">Popular</span></div><div class="gw-info"><p class="gw-cat">Grey Goose</p><p class="gw-name">Grey Goose Big Glass</p><p class="gw-desc">A generous big glass cut from the frosted Grey Goose bottle. The pale blue tint and frosted texture make it unlike any other glass in the collection.</p></div></div>
+        <div class="gw-card" data-gwcat="greygoose"><div class="gw-img gi-shot" id="gwimg-gg-short"><span class="ph">🥃</span><span class="gw-badge nb">New</span></div><div class="gw-info"><p class="gw-cat">Grey Goose</p><p class="gw-name">Grey Goose Short Glass</p><p class="gw-desc">A squat, satisfying short glass from the Grey Goose bottle. The frosted glass glows beautifully with a candle or backlight behind it.</p></div></div>
+        <div class="gw-card" data-gwcat="greygoose"><div class="gw-img gi-decanter" id="gwimg-gg-jug"><span class="ph">🫗</span></div><div class="gw-info"><p class="gw-cat">Grey Goose</p><p class="gw-name">Grey Goose Jug</p><p class="gw-desc">The whole Grey Goose bottle fitted with a pouring lip and handle — a striking frosted jug for water, juice or cocktail mixes at the table.</p></div></div>
+      </div>
+    </div>
+
+    <!-- ── BOMBAY SAPPHIRE ── -->
+    <div class="brand-section" id="brand-bombay">
+      <div class="brand-header">
+        <div class="brand-logo-wrap">
+          <span class="brand-emoji">💎</span>
+          <div>
+            <p class="brand-label">✦ Bombay Sapphire Collection</p>
+            <h3 class="brand-title">Bombay Sapphire</h3>
+          </div>
+        </div>
+        <p class="brand-desc">The iconic sapphire-blue Bombay Sapphire bottle is a natural work of art. We transform it into a full range of pieces — the colour alone makes every item unmistakable.</p>
+      </div>
+      <div class="gw-grid">
+        <div class="gw-card" data-gwcat="bombay"><div class="gw-img ab-img-blue" id="gwimg-bs-glass"><span class="ph">🥂</span><span class="gw-badge">Bestseller</span></div><div class="gw-info"><p class="gw-cat">Bombay Sapphire</p><p class="gw-name">Bombay Sapphire Glass</p><p class="gw-desc">A tall, fire-polished glass in the instantly recognisable sapphire blue. Stunning on any table — hand-cut from the Bombay bottle body.</p></div></div>
+        <div class="gw-card" data-gwcat="bombay"><div class="gw-img ab-img-blue" id="gwimg-bs-ashtray"><span class="ph">🪔</span></div><div class="gw-info"><p class="gw-cat">Bombay Sapphire</p><p class="gw-name">Bombay Sapphire Ash Tray</p><p class="gw-desc">The thick base of the Bombay Sapphire bottle cut and smoothed into a deep blue ash tray. A collector's piece for gin lovers.</p></div></div>
+        <div class="gw-card" data-gwcat="bombay"><div class="gw-img ab-img-blue" id="gwimg-bs-platter"><span class="ph">🫙</span><span class="gw-badge nb">New</span></div><div class="gw-info"><p class="gw-cat">Bombay Sapphire</p><p class="gw-name">Bombay Sapphire Platter</p><p class="gw-desc">Kiln-slumped from the Bombay Sapphire bottle into a gorgeous blue serving platter. Perfect for fruit, cheese or as a decorative display piece.</p></div></div>
+        <div class="gw-card" data-gwcat="bombay"><div class="gw-img ab-img-blue" id="gwimg-bs-mug"><span class="ph">☕</span></div><div class="gw-info"><p class="gw-cat">Bombay Sapphire</p><p class="gw-name">Bombay Sapphire Mug</p><p class="gw-desc">A wide-cut Bombay Sapphire bottle section fitted with a hand-fired handle — a unique sapphire-blue mug that will spark conversation every morning.</p></div></div>
+        <div class="gw-card" data-gwcat="bombay"><div class="gw-img ab-img-blue" id="gwimg-bs-jug"><span class="ph">🫗</span></div><div class="gw-info"><p class="gw-cat">Bombay Sapphire</p><p class="gw-name">Bombay Sapphire Jug</p><p class="gw-desc">The Bombay Sapphire bottle transformed into a pouring jug with a stainless spout. The sapphire blue makes it a table statement in its own right.</p></div></div>
+        <div class="gw-card" data-gwcat="bombay"><div class="gw-img ab-img-blue" id="gwimg-bs-set"><span class="ph">💠</span></div><div class="gw-info"><p class="gw-cat">Bombay Sapphire</p><p class="gw-name">Bombay Sapphire Set</p><p class="gw-desc">The complete Bombay collection — 2 glasses, 1 platter, 1 jug and 1 mug. A full sapphire-blue table setting, every piece from the same bottle family.</p></div></div>
+      </div>
+    </div>
+
+    <!-- ── HEINEKEN ── -->
+    <div class="brand-section" id="brand-heineken">
+      <div class="brand-header">
+        <div class="brand-logo-wrap">
+          <span class="brand-emoji">🍺</span>
+          <div>
+            <p class="brand-label">✦ Heineken Collection</p>
+            <h3 class="brand-title">Heineken</h3>
+          </div>
+        </div>
+        <p class="brand-desc">The classic green Heineken bottle is one of the most recognisable in the world. Its deep emerald glass transforms into vibrant, eye-catching pieces that carry their origins proudly.</p>
+      </div>
+      <div class="gw-grid">
+        <div class="gw-card" data-gwcat="heineken"><div class="gw-img" style="background:linear-gradient(140deg,rgba(34,139,34,0.2),rgba(0,100,0,0.12))" id="gwimg-hk-glass"><span class="ph">🥂</span><span class="gw-badge">Popular</span></div><div class="gw-info"><p class="gw-cat">Heineken</p><p class="gw-name">Heineken Glass</p><p class="gw-desc">Hand-cut from the iconic green Heineken bottle — a vibrant emerald drinking glass that's immediately recognisable and completely unique.</p></div></div>
+        <div class="gw-card" data-gwcat="heineken"><div class="gw-img" style="background:linear-gradient(140deg,rgba(34,139,34,0.2),rgba(0,100,0,0.12))" id="gwimg-hk-mug"><span class="ph">☕</span><span class="gw-badge nb">New</span></div><div class="gw-info"><p class="gw-cat">Heineken</p><p class="gw-name">Heineken Mug</p><p class="gw-desc">A wide Heineken bottle section fitted with a handle — a cheerful green mug for coffee, tea or cold brew. Green never looked this good in the morning.</p></div></div>
+        <div class="gw-card" data-gwcat="heineken"><div class="gw-img" style="background:linear-gradient(140deg,rgba(34,139,34,0.2),rgba(0,100,0,0.12))" id="gwimg-hk-platter"><span class="ph">🫙</span></div><div class="gw-info"><p class="gw-cat">Heineken</p><p class="gw-name">Heineken Platter</p><p class="gw-desc">Kiln-slumped from the Heineken bottle into an emerald green serving platter. A conversation piece for any dinner table — functional and striking.</p></div></div>
+        <div class="gw-card" data-gwcat="heineken"><div class="gw-img" style="background:linear-gradient(140deg,rgba(34,139,34,0.2),rgba(0,100,0,0.12))" id="gwimg-hk-set"><span class="ph">🍀</span></div><div class="gw-info"><p class="gw-cat">Heineken</p><p class="gw-name">Heineken Set</p><p class="gw-desc">2 glasses + 1 mug + 1 platter from the same Heineken batch. A complete emerald table set with a strong personality and a great story.</p></div></div>
+      </div>
+    </div>
+
+    <!-- ── GLENFIDDICH ── -->
+    <div class="brand-section" id="brand-glenfiddich">
+      <div class="brand-header">
+        <div class="brand-logo-wrap">
+          <span class="brand-emoji">🦌</span>
+          <div>
+            <p class="brand-label">✦ Glenfiddich Collection</p>
+            <h3 class="brand-title">Glenfiddich</h3>
+          </div>
+        </div>
+        <p class="brand-desc">The distinctive triangular Glenfiddich bottle is unlike any other spirit bottle. Its unusual form creates pieces with a truly unique silhouette — unmistakably Glenfiddich, unmistakably one of a kind.</p>
+      </div>
+      <div class="gw-grid">
+        <div class="gw-card" data-gwcat="glenfiddich"><div class="gw-img" style="background:linear-gradient(140deg,rgba(180,150,80,0.2),rgba(220,185,100,0.12))" id="gwimg-gf-glass"><span class="ph">🥂</span><span class="gw-badge">Popular</span></div><div class="gw-info"><p class="gw-cat">Glenfiddich</p><p class="gw-name">Glenfiddich Glass</p><p class="gw-desc">Cut from the triangular Glenfiddich bottle — the angular profile gives this glass a silhouette unlike any other. Warm amber tones, fire-polished rim.</p></div></div>
+        <div class="gw-card" data-gwcat="glenfiddich"><div class="gw-img" style="background:linear-gradient(140deg,rgba(180,150,80,0.2),rgba(220,185,100,0.12))" id="gwimg-gf-set"><span class="ph">🫗</span><span class="gw-badge nb">New</span></div><div class="gw-info"><p class="gw-cat">Glenfiddich</p><p class="gw-name">Glenfiddich Set</p><p class="gw-desc">2 Glenfiddich glasses + 1 platter from the same triangular bottles. A premium whisky lover's set with unmatched character and a story to tell.</p></div></div>
+      </div>
+    </div>
+
+    <!-- ── ANTIQUITY ── -->
+    <div class="brand-section" id="brand-antiquity">
+      <div class="brand-header">
+        <div class="brand-logo-wrap">
+          <span class="brand-emoji">🏺</span>
+          <div>
+            <p class="brand-label">✦ Antiquity Collection</p>
+            <h3 class="brand-title">Antiquity</h3>
+          </div>
+        </div>
+        <p class="brand-desc">Antiquity's rich, dark glass and classic form make for warmly toned glassware with real depth. A favourite of whisky lovers, now reborn as pieces to use and admire long after the last pour.</p>
+      </div>
+      <div class="gw-grid">
+        <div class="gw-card" data-gwcat="antiquity"><div class="gw-img" style="background:linear-gradient(140deg,rgba(101,67,33,0.18),rgba(160,110,60,0.12))" id="gwimg-aq-glass"><span class="ph">🥂</span><span class="gw-badge">Bestseller</span></div><div class="gw-info"><p class="gw-cat">Antiquity</p><p class="gw-name">Antiquity Glass</p><p class="gw-desc">Hand-cut from the deep Antiquity bottle — a warm, rich-toned glass with a satisfying weight. Perfect for whisky neat or with a single cube of ice.</p></div></div>
+        <div class="gw-card" data-gwcat="antiquity"><div class="gw-img" style="background:linear-gradient(140deg,rgba(101,67,33,0.18),rgba(160,110,60,0.12))" id="gwimg-aq-jug"><span class="ph">🫗</span><span class="gw-badge nb">New</span></div><div class="gw-info"><p class="gw-cat">Antiquity</p><p class="gw-name">Antiquity Jug</p><p class="gw-desc">The Antiquity bottle fitted with a stainless pouring spout — a deep, handsome jug for water or cocktail mixes. Rich brown tones that look stunning on any table.</p></div></div>
+      </div>
+    </div>
+
+  </section>
+  <div class="gw-spotlight">
+    <div class="gw-spot-img" id="gwimg-spotlight"><span class="ph">✨</span></div>
+    <div>
+      <p class="gw-spot-tag">✦ The Craft Behind Every Piece</p>
+      <h2>From bottle to beautiful, by hand</h2>
+      <p>Each piece begins with a carefully selected bottle — chosen for its colour, weight and character. Our artisans score the glass with a precision cutter, then use controlled heat and cold to make a clean break. Hours of hand-sanding and polishing follow until the edge is silky smooth.</p>
+      <ul><li>Hand-scored and cold-broken — no power saws</li><li>Fire-polished rim for safety and elegance</li><li>Each piece individually inspected</li><li>Signed by the artisan who made it</li></ul>
+    </div>
+  </div>
+  <div class="gw-process">
+    <div><div class="gw-st-icon">🍾</div><p class="gw-st-title">Bottle Collected</p><p class="gw-st-desc">Sourced from restaurants, bars and households — cleaned and sorted by type and colour.</p></div>
+    <div><div class="gw-st-icon">✂️</div><p class="gw-st-title">Cut & Polished</p><p class="gw-st-desc">Scored, heat-cracked, then hand-sanded through 6 grits and fire-polished to a smooth edge.</p></div>
+    <div><div class="gw-st-icon">📦</div><p class="gw-st-title">Wrapped & Sent</p><p class="gw-st-desc">Packed in recycled kraft paper with a card telling your bottle's story.</p></div>
+  </div>
+  <section class="cta-section"><h2>Enquire about glassware</h2><p>Call or WhatsApp us for custom orders and bulk enquiries.</p><div style="margin-top:1rem"><a href="tel:9373132994" style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--white);text-decoration:none">📞 9373132994</a></div></section>
+  <div class="ft"><div class="ft-grid"><div><p class="ft-brand">Sustainability <span>by Saloni</span></p><p class="ft-desc">Sustainable creations handcrafted with love.</p><a href="tel:9373132994" class="ft-phone">📞 9373132994</a></div><div class="ft-col"><h4>Glassware</h4><a href="#">Glasses</a><a href="#">Vases</a><a href="#">Platters</a><a href="#">Sets</a></div><div class="ft-col"><h4>Also Browse</h4><a onclick="showPage('home')">Home</a><a onclick="showPage('cloth')">Recycled Cloth</a><a onclick="showPage('about')">About Us</a></div><div class="ft-col"><h4>Contact</h4><a href="https://www.instagram.com/sustainability_by_saloni" target="_blank">📷 @sustainability_by_saloni</a><a href="#">WhatsApp</a><a href="tel:9373132994">9373132994</a><a href="#">Pune, India</a></div></div><div class="ft-bottom"><span class="ft-copy">© 2025 Sustainability by Saloni. All rights reserved.</span><span class="ft-copy">Made with ♻️ in Pune</span></div></div>
+</div><!-- /glassware -->
+
+
+<!-- ══════════════════ RECYCLED CLOTH ══════════════════ -->
+<div id="page-cloth" class="page">
+  <div class="rc-hero">
+    <span class="rc-tag">✦ Recycled Cloth Collection</span>
+    <h1>Fabric given a <em>second life</em></h1>
+    <p class="rc-hero-p">Every cushion cover, bed sheet and handbag begins as pre-loved or surplus cloth. Our textile artisans sort, wash and hand-stitch each piece into something soft, beautiful and entirely unique.</p>
+    <div class="rc-hero-btns">
+      <a href="#rc-gallery" class="btn-cloth">View Collection</a>
+      <span class="btn-outline" onclick="showPage('home')">← Back to Home</span>
+    </div>
+  </div>
+  <div class="rc-stats">
+    <div><p class="rc-stat-num">1,800+</p><p class="rc-stat-label">Fabric pieces reborn</p></div>
+    <div><p class="rc-stat-num">40+</p><p class="rc-stat-label">Fabric types used</p></div>
+    <div><p class="rc-stat-num">100%</p><p class="rc-stat-label">Recycled materials</p></div>
+    <div><p class="rc-stat-num">0 kg</p><p class="rc-stat-label">Sent to landfill</p></div>
+  </div>
+  <div class="rc-filter-bar">
+    <button class="rc-fb active" onclick="filterRC('all',this)">All Pieces</button>
+    <button class="rc-fb" onclick="filterRC('cushion',this)">Cushion Covers</button>
+    <button class="rc-fb" onclick="filterRC('sheets',this)">Bed Sheets</button>
+    <button class="rc-fb" onclick="filterRC('bag',this)">Handbags</button>
+    <button class="rc-fb" onclick="filterRC('jacket',this)">Jackets</button>
+  </div>
+  <section class="rc-gallery" id="rc-gallery">
+    <div class="manage-row"><button class="mgbtn" onclick="openAdmin('rc')">📷 Manage Photos</button></div>
+    <div class="rc-grid" id="rcGrid">
+      <div class="rc-card" data-rccat="cushion"><div class="rc-img ri-cushion" id="rcimg-cushion"><span class="ph">🛋️</span><span class="rc-badge">Bestseller</span></div><div class="rc-info"><p class="rc-cat">Cushion Cover</p><p class="rc-name">Patchwork Cushion Cover</p><p class="rc-desc">Hand-stitched from assorted reclaimed cotton and silk offcuts. A collage of colour, texture and warmth — no two alike.</p></div></div>
+      <div class="rc-card" data-rccat="cushion"><div class="rc-img ri-cover" id="rcimg-cover"><span class="ph">🎨</span><span class="rc-badge nb">New</span></div><div class="rc-info"><p class="rc-cat">Cushion Cover</p><p class="rc-name">Block Print Cushion Cover</p><p class="rc-desc">Upcycled block-printed fabric from textile mills, hand-cut and sewn into vibrant cushion covers.</p></div></div>
+      <div class="rc-card" data-rccat="sheets"><div class="rc-img ri-sheets" id="rcimg-sheets"><span class="ph">🛏️</span></div><div class="rc-info"><p class="rc-cat">Bed Sheets</p><p class="rc-name">Heritage Bed Sheet Set</p><p class="rc-desc">Woven from surplus cotton yarns and pre-loved fabric panels. Soft, breathable, and finished with eco-safe dyes.</p></div></div>
+      <div class="rc-card" data-rccat="sheets"><div class="rc-img ri-patchwork" id="rcimg-patchwork"><span class="ph">🌸</span><span class="rc-badge">Popular</span></div><div class="rc-info"><p class="rc-cat">Bed Sheets</p><p class="rc-name">Floral Patchwork Sheet</p><p class="rc-desc">A beautiful patchwork of floral fabric remnants hand-sewn into a full bed sheet. Each panel tells its own story.</p></div></div>
+      <div class="rc-card" data-rccat="bag"><div class="rc-img ri-bag" id="rcimg-bag"><span class="ph">👜</span><span class="rc-badge nb">New</span></div><div class="rc-info"><p class="rc-cat">Handbag</p><p class="rc-name">Artisan Structured Handbag</p><p class="rc-desc">Structured handbag handstitched from reclaimed denim and canvas. Reinforced handles, magnetic clasp, inner pocket.</p></div></div>
+      <div class="rc-card" data-rccat="jacket"><div class="rc-img" style="background:linear-gradient(140deg,rgba(192,57,43,0.2),rgba(231,76,60,0.12))" id="rcimg-jacket-red"><span class="ph">🧥</span><span class="rc-badge nb">New</span><span class="color-dot-badge red-dot">Red</span></div><div class="rc-info"><p class="rc-cat">Jacket</p><p class="rc-name">Upcycled Jacket — Red</p><p class="rc-desc">A bold red jacket handstitched from reclaimed fabric offcuts. Patchwork panels, sturdy lining and a unique design — no two alike.</p></div></div>
+      <div class="rc-card" data-rccat="jacket"><div class="rc-img" style="background:linear-gradient(140deg,rgba(212,172,13,0.22),rgba(244,208,63,0.14))" id="rcimg-jacket-yellow"><span class="ph">🧥</span><span class="rc-badge nb">New</span><span class="color-dot-badge yellow-dot">Yellow</span></div><div class="rc-info"><p class="rc-cat">Jacket</p><p class="rc-name">Upcycled Jacket — Yellow</p><p class="rc-desc">A sunshine yellow statement jacket made from reclaimed cotton and linen. Light, breezy and instantly cheerful — perfect for any season.</p></div></div>
+      <div class="rc-card" data-rccat="jacket"><div class="rc-img" style="background:linear-gradient(140deg,rgba(39,174,96,0.2),rgba(88,214,141,0.12))" id="rcimg-jacket-green"><span class="ph">🧥</span><span class="rc-badge nb">New</span><span class="color-dot-badge" style="background:#27ae60">Green</span></div><div class="rc-info"><p class="rc-cat">Jacket</p><p class="rc-name">Upcycled Jacket — Green</p><p class="rc-desc">An earthy green jacket pieced together from reclaimed cotton, canvas and corduroy offcuts. Textured, warm and deeply sustainable.</p></div></div>
+      <div class="rc-card" data-rccat="jacket"><div class="rc-img" style="background:linear-gradient(140deg,rgba(155,126,166,0.3),rgba(94,68,112,0.18))" id="rcimg-jacket-purple"><span class="ph">🧥</span><span class="rc-badge nb">New</span><span class="color-dot-badge" style="background:#5e4470">Purple</span></div><div class="rc-info"><p class="rc-cat">Jacket</p><p class="rc-name">Upcycled Jacket — Purple</p><p class="rc-desc">A rich purple jacket handcrafted from reclaimed velvet, silk and cotton. The most luxurious piece in the recycled cloth collection.</p></div></div>
+    </div>
+  </section>
+  <div class="rc-spotlight">
+    <div><p class="rc-spot-tag">✦ The Story Behind the Stitch</p><h2>From surplus cloth to something you'll keep forever</h2><p>Our textile artisans work with mills, tailors and households across Pune to source pre-loved and offcut fabric that would otherwise be discarded. Each batch is sorted by weight, weave and colour, then washed and inspected before cutting begins.</p><ul><li>100% recycled and pre-loved fabrics only</li><li>Hand-cut and sewn by Pune-based artisans</li><li>Eco-safe dyes where re-dyeing is needed</li><li>No two pieces are exactly the same</li><li>Each piece carries a small tag with its fabric origin</li></ul></div>
+    <div class="rc-spot-img" id="rcimg-spotlight"><span class="ph">🧵</span></div>
+  </div>
+  <div class="rc-process">
+    <div><div class="rc-st-icon">🧺</div><p class="rc-st-title">Fabric Collected</p><p class="rc-st-desc">Sourced from tailors, mills and households — sorted by type, colour and weave.</p></div>
+    <div><div class="rc-st-icon">🪣</div><p class="rc-st-title">Washed & Inspected</p><p class="rc-st-desc">Every piece of cloth is thoroughly washed, sun-dried and inspected for quality before cutting.</p></div>
+    <div><div class="rc-st-icon">✂️</div><p class="rc-st-title">Cut & Stitched</p><p class="rc-st-desc">Artisans hand-cut and stitch each piece with care, combining fabrics for colour and structural balance.</p></div>
+    <div><div class="rc-st-icon">📦</div><p class="rc-st-title">Wrapped & Sent</p><p class="rc-st-desc">Folded neatly and wrapped in recycled paper with a card telling your fabric's story.</p></div>
+  </div>
+  <section class="cta-section cta-cloth"><h2>Enquire about recycled cloth</h2><p>Call or WhatsApp us for custom sizes, bulk orders or fabric preferences.</p><div style="margin-top:1rem"><a href="tel:9373132994" style="font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--white);text-decoration:none">📞 9373132994</a></div></section>
+  <div class="ft"><div class="ft-grid"><div><p class="ft-brand">Sustainability <span>by Saloni</span></p><p class="ft-desc">Sustainable creations handcrafted with love — one bottle and one stitch at a time.</p><a href="tel:9373132994" class="ft-phone">📞 9373132994</a></div><div class="ft-col"><h4>Recycled Cloth</h4><a href="#">Cushion Covers</a><a href="#">Bed Sheets</a><a href="#">Handbags</a></div><div class="ft-col"><h4>Also Browse</h4><a onclick="showPage('home')">Home</a><a onclick="showPage('glassware')">Glassware</a><a onclick="showPage('about')">About Us</a></div><div class="ft-col"><h4>Contact</h4><a href="https://www.instagram.com/sustainability_by_saloni" target="_blank">📷 @sustainability_by_saloni</a><a href="#">WhatsApp</a><a href="tel:9373132994">9373132994</a><a href="#">Pune, India</a></div></div><div class="ft-bottom"><span class="ft-copy">© 2025 Sustainability by Saloni. All rights reserved.</span><span class="ft-copy">Made with ♻️ in Pune</span></div></div>
+</div><!-- /cloth -->
+
+
+<script>
+/* ═══════════════════════════════════════════════════
+   STORAGE HELPERS — localStorage for persistence
+   All photos are saved as base64 and survive refresh.
+   Every visitor on the same device sees the photos.
+═══════════════════════════════════════════════════ */
+const LS_KEY = 'sbs_photos_v2';
+const IDB_NAME = 'sbs_photo_db';
+const IDB_STORE = 'photos';
+const IDB_KEY = 'store';
+
+function loadStore(){
+  try{ return JSON.parse(localStorage.getItem(LS_KEY)||'{}'); }
+  catch(e){ return {}; }
+}
+
+function openPhotoDb(){
+  return new Promise(function(resolve,reject){
+    try{
+      const req=indexedDB.open(IDB_NAME,1);
+      req.onupgradeneeded=function(){
+        const db=req.result;
+        if(!db.objectStoreNames.contains(IDB_STORE)) db.createObjectStore(IDB_STORE);
+      };
+      req.onsuccess=function(){ resolve(req.result); };
+      req.onerror=function(){ reject(req.error||new Error('IndexedDB open failed')); };
+    }catch(err){ reject(err); }
+  });
+}
+
+function readStoreFromIdb(){
+  return openPhotoDb().then(function(db){
+    return new Promise(function(resolve,reject){
+      const tx=db.transaction(IDB_STORE,'readonly');
+      const os=tx.objectStore(IDB_STORE);
+      const req=os.get(IDB_KEY);
+      req.onsuccess=function(){
+        const out=req.result;
+        resolve(out&&typeof out==='object'?out:{});
+      };
+      req.onerror=function(){ reject(req.error||new Error('IndexedDB read failed')); };
+    }).finally(function(){ try{ db.close(); }catch(_){} });
+  });
+}
+
+function writeStoreToIdb(store){
+  return openPhotoDb().then(function(db){
+    return new Promise(function(resolve,reject){
+      const tx=db.transaction(IDB_STORE,'readwrite');
+      tx.oncomplete=function(){ resolve(true); };
+      tx.onerror=function(){ reject(tx.error||new Error('IndexedDB write failed')); };
+      tx.objectStore(IDB_STORE).put(store,IDB_KEY);
+    }).finally(function(){ try{ db.close(); }catch(_){} });
+  });
+}
+
+function showStorageWarning(){
+  try{
+    const prev=document.getElementById('rcSaveMsg');
+    if(prev){
+      prev.textContent='⚠ Storage full — clear older photos or use smaller images';
+      prev.classList.add('show');
+      setTimeout(function(){ prev.classList.remove('show'); },5000);
+    }
+  }catch(_){}
+}
+
+function saveStoreAsync(store, silent){
+  return writeStoreToIdb(store).then(function(){
+    try{ localStorage.removeItem(LS_KEY); }catch(_){}
+    return true;
+  }).catch(function(e){
+    console.warn('Storage write failed — image may not persist',e);
+    if(!silent) showStorageWarning();
+    return false;
+  });
+}
+
+function saveStore(store, silent){
+  saveStoreAsync(store, !!silent);
+  return true;
+}
+
+/* Downscale cloth photos so localStorage quota is not exceeded (common cause of “lost” RC images). */
+function compressImageDataUrl(dataUrl,maxEdge,jpegQuality){
+  return new Promise(function(resolve){
+    var im=new Image();
+    im.onload=function(){
+      var iw=im.naturalWidth,ih=im.naturalHeight;
+      if(!iw||!ih){ resolve(dataUrl); return; }
+      var maxDim=Math.max(iw,ih);
+      if(maxDim<=maxEdge&&dataUrl.length<550000){ resolve(dataUrl); return; }
+      var scale=Math.min(1,maxEdge/maxDim);
+      var tw=Math.max(1,Math.round(iw*scale)),th=Math.max(1,Math.round(ih*scale));
+      var cv=document.createElement('canvas');
+      cv.width=tw; cv.height=th;
+      var cx=cv.getContext('2d');
+      cx.drawImage(im,0,0,tw,th);
+      var out;
+      try{ out=cv.toDataURL('image/jpeg',jpegQuality); }
+      catch(err){ out=dataUrl; }
+      resolve(out.length<dataUrl.length?out:dataUrl);
+    };
+    im.onerror=function(){ resolve(dataUrl); };
+    im.src=dataUrl;
+  });
+}
+
+/* Save with retry-compression fallback so uploads persist reliably across pages. */
+function persistImage(id, dataUrl, maxEdge, jpegQuality){
+  const tries=[
+    [maxEdge,jpegQuality],
+    [Math.min(maxEdge,1400),Math.min(jpegQuality,0.78)],
+    [1200,0.72],
+    [960,0.68],
+  ];
+  return new Promise(function(resolve){
+    function attempt(i){
+      if(i>=tries.length){
+        resolve({ok:false,src:dataUrl});
+        return;
+      }
+      const pair=tries[i];
+      compressImageDataUrl(dataUrl,pair[0],pair[1]).then(function(out){
+        const candidate=Object.assign({},imgStore);
+        candidate[id]=out;
+        saveStoreAsync(candidate,true).then(function(ok){
+          if(ok){
+            imgStore[id]=out;
+            resolve({ok:true,src:out});
+          }else{
+            attempt(i+1);
+          }
+        });
+      });
+    }
+    attempt(0);
+  });
+}
+
+/* Central image store — hydrated from IndexedDB (with legacy migration). */
+let imgStore = {};
+
+function initStore(){
+  return readStoreFromIdb().then(function(stored){
+    if(stored&&Object.keys(stored).length){
+      imgStore=stored;
+      return;
+    }
+    const legacy=loadStore();
+    imgStore=legacy;
+    if(legacy&&Object.keys(legacy).length){
+      return writeStoreToIdb(legacy).then(function(){
+        try{ localStorage.removeItem(LS_KEY); }catch(_){}
+      });
+    }
+  }).catch(function(){
+    imgStore=loadStore();
+  });
+}
+
+/* Apply a src to any gallery slot element */
+function applyImgToSlot(el, src){
+  if(!el) return;
+  let img = el.querySelector('img');
+  if(!img){ img=document.createElement('img'); el.appendChild(img); }
+  img.src = src;
+  const em = el.querySelector('.ph, .mission-upload-label, .founder-img-upload, .studio-slot-label');
+  if(em) em.style.display='none';
+}
+
+/* On page load: hydrate every slot that has a saved image */
+function hydrateAll(){
+  Object.entries(imgStore).forEach(([id, src])=>{
+    // gallery slots (gw, rc, home)
+    const galSlot = document.getElementById(idToGalleryId(id));
+    if(galSlot) applyImgToSlot(galSlot, src);
+
+    // mission slots
+    if(id.startsWith('mission-')){
+      const n = id.replace('mission-','');
+      const slot = document.getElementById('mslot-'+n);
+      if(slot){ applyImgToSlot(slot, src); slot.classList.add('has-img'); }
+    }
+    // founder photo
+    if(id==='founder'){
+      const wrap=document.getElementById('founder-img');
+      if(wrap){ applyImgToSlot(wrap,src); wrap.classList.add('has-img'); }
+    }
+    // studio slots
+    if(id.startsWith('studio-')){
+      const n=id.replace('studio-','');
+      const slot=document.getElementById('ss-'+n);
+      if(slot){ applyImgToSlot(slot,src); slot.classList.add('has-img'); }
+    }
+  });
+}
+
+/* Map an imgStore id → gallery element id */
+function idToGalleryId(id){
+  const MAP = {
+    'h-glass':'himg-glass','h-vase':'himg-vase','h-platter':'himg-platter',
+    'h-cushion':'himg-cushion','h-sheets':'himg-sheets','h-bag':'himg-bag',
+    // Old Monk
+    'gw-om-glass':'gwimg-om-glass','gw-om-platter':'gwimg-om-platter',
+    'gw-om-ashtray':'gwimg-om-ashtray','gw-om-set':'gwimg-om-set',
+    // Absolut Glasses
+    'gw-ab-glass-red':'gwimg-ab-glass-red','gw-ab-glass-blue':'gwimg-ab-glass-blue',
+    'gw-ab-glass-yellow':'gwimg-ab-glass-yellow',
+    // Absolut Mini Glasses
+    'gw-ab-mini-red':'gwimg-ab-mini-red','gw-ab-mini-blue':'gwimg-ab-mini-blue',
+    'gw-ab-mini-yellow':'gwimg-ab-mini-yellow',
+    // Absolut Soap Dispensers
+    'gw-ab-soap-red':'gwimg-ab-soap-red','gw-ab-soap-blue':'gwimg-ab-soap-blue',
+    'gw-ab-soap-yellow':'gwimg-ab-soap-yellow',
+    // Absolut Cooking Dispensers
+    'gw-ab-cook-red':'gwimg-ab-cook-red','gw-ab-cook-blue':'gwimg-ab-cook-blue',
+    'gw-ab-cook-yellow':'gwimg-ab-cook-yellow',
+    // Johnnie Walker
+    'gw-jw-glass':'gwimg-jw-glass','gw-jw-platter':'gwimg-jw-platter','gw-jw-set':'gwimg-jw-set',
+    // Indri
+    'gw-indri-big':'gwimg-indri-big','gw-indri-short':'gwimg-indri-short','gw-indri-long':'gwimg-indri-long',
+    // Grey Goose
+    'gw-gg-big':'gwimg-gg-big','gw-gg-short':'gwimg-gg-short',
+    'gw-gg-jug':'gwimg-gg-jug','gw-gg-set':'gwimg-gg-set',
+    // Bombay Sapphire
+    'gw-bs-glass':'gwimg-bs-glass','gw-bs-ashtray':'gwimg-bs-ashtray',
+    'gw-bs-platter':'gwimg-bs-platter','gw-bs-mug':'gwimg-bs-mug',
+    'gw-bs-jug':'gwimg-bs-jug','gw-bs-set':'gwimg-bs-set',
+    // Heineken
+    'gw-hk-glass':'gwimg-hk-glass','gw-hk-mug':'gwimg-hk-mug',
+    'gw-hk-platter':'gwimg-hk-platter','gw-hk-set':'gwimg-hk-set',
+    // Glenfiddich
+    'gw-gf-glass':'gwimg-gf-glass','gw-gf-set':'gwimg-gf-set',
+    // Antiquity
+    'gw-aq-glass':'gwimg-aq-glass','gw-aq-jug':'gwimg-aq-jug',
+    // spotlight
+    'gw-spotlight':'gwimg-spotlight',
+    // cloth
+    'rc-cushion':'rcimg-cushion','rc-cover':'rcimg-cover',
+    'rc-sheets':'rcimg-sheets','rc-patchwork':'rcimg-patchwork',
+    'rc-bag':'rcimg-bag','rc-spotlight':'rcimg-spotlight',
+    // jackets
+    'rc-jacket-red':'rcimg-jacket-red',
+    'rc-jacket-yellow':'rcimg-jacket-yellow','rc-jacket-green':'rcimg-jacket-green',
+    'rc-jacket-purple':'rcimg-jacket-purple',
+  };
+  return MAP[id]||null;
+}
+
+/* ── PAGE ROUTING ── */
+let currentPage='home';
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  currentPage=id;
+  window.scrollTo({top:0,behavior:'smooth'});
+  ['home','gw','rc','ab'].forEach(n=>document.getElementById('nav-'+n)?.classList.remove('active-nav'));
+  const map={home:'nav-home',glassware:'nav-gw',cloth:'nav-rc',about:'nav-ab'};
+  if(map[id])document.getElementById(map[id]).classList.add('active-nav');
+}
+
+/* ── FILTERS ── */
+function filterHome(cat,btn){
+  document.querySelectorAll('.collection-tabs .tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#homeGrid .product-card').forEach(c=>{
+    c.classList.toggle('visible',cat==='all'||c.dataset.cat===cat);
+  });
+}
+
+/* Brand filter — shows/hides entire brand sections */
+function filterGW(brand, btn){
+  document.querySelectorAll('.gw-fb').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.brand-section').forEach(sec=>{
+    sec.classList.toggle('hidden', brand!=='all' && sec.id!=='brand-'+brand);
+  });
+}
+function filterRC(cat,btn){
+  document.querySelectorAll('.rc-fb').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#rcGrid .rc-card').forEach(c=>{
+    c.classList.toggle('hidden',cat!=='all'&&c.dataset.rccat!==cat);
+  });
+}
+
+/* Absolut sub-filter — shows/hides sub-groups within the Absolut section */
+function filterAbsolut(cat, btn){
+  document.querySelectorAll('.ab-stab').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.ab-subgroup').forEach(sg=>{
+    sg.classList.toggle('hidden', cat!=='all' && sg.id!=='absg-'+cat);
+  });
+}
+
+/* ── MISSION PHOTO SLOTS (inline, persistent) ── */
+function triggerMissionUpload(n){ document.getElementById('mfile-'+n).click(); }
+
+function handleMissionFile(e,n){
+  const f=e.target.files[0]; if(!f)return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    const src=ev.target.result;
+    persistImage('mission-'+n,src,1600,0.82).then(function(result){
+      const slot=document.getElementById('mslot-'+n);
+      if(result.ok){
+        applyImgToSlot(slot,result.src); slot.classList.add('has-img');
+      }
+    });
+  };
+  r.readAsDataURL(f);
+}
+
+function clearMissionPhoto(e,n){
+  e.stopPropagation();
+  delete imgStore['mission-'+n]; saveStore(imgStore);
+  const slot=document.getElementById('mslot-'+n);
+  const img=slot.querySelector('img'); if(img)img.remove();
+  const lbl=slot.querySelector('.mission-upload-label'); if(lbl)lbl.style.display='';
+  slot.classList.remove('has-img');
+  document.getElementById('mfile-'+n).value='';
+}
+
+/* ── FOUNDER PHOTO (persistent) ── */
+function handleFounderFile(e){
+  const f=e.target.files[0]; if(!f)return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    const src=ev.target.result;
+    persistImage('founder',src,1800,0.84).then(function(result){
+      if(result.ok){
+        const wrap=document.getElementById('founder-img');
+        let img=wrap.querySelector('img');
+        if(!img){img=document.createElement('img');img.style.cssText='width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:inherit';wrap.appendChild(img);}
+        img.src=result.src; wrap.classList.add('has-img');
+      }
+    });
+  };
+  r.readAsDataURL(f);
+}
+
+function clearFounderPhoto(e){
+  e.stopPropagation();
+  delete imgStore['founder']; saveStore(imgStore);
+  const wrap=document.getElementById('founder-img');
+  const img=wrap.querySelector('img'); if(img)img.remove();
+  const up=wrap.querySelector('.founder-img-upload'); if(up)up.style.display='';
+  wrap.classList.remove('has-img');
+  document.getElementById('founder-file').value='';
+}
+
+/* ── STUDIO PHOTOS (persistent) ── */
+function triggerStudioUpload(n){ document.getElementById('sfile-'+n).click(); }
+
+function handleStudioFile(e,n){
+  const f=e.target.files[0]; if(!f)return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    const src=ev.target.result;
+    persistImage('studio-'+n,src,1600,0.82).then(function(result){
+      if(result.ok){
+        const slot=document.getElementById('ss-'+n);
+        let img=slot.querySelector('img');
+        if(!img){img=document.createElement('img');img.style.cssText='width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:inherit';slot.appendChild(img);}
+        img.src=result.src; slot.classList.add('has-img');
+      }
+    });
+  };
+  r.readAsDataURL(f);
+}
+
+function clearStudioPhoto(e,n){
+  e.stopPropagation();
+  delete imgStore['studio-'+n]; saveStore(imgStore);
+  const slot=document.getElementById('ss-'+n);
+  const img=slot.querySelector('img'); if(img)img.remove();
+  const lbl=slot.querySelector('.studio-slot-label'); if(lbl)lbl.style.display='';
+  slot.classList.remove('has-img');
+  document.getElementById('sfile-'+n).value='';
+}
+
+/* ═══════════════════════════════════════════════════
+   ADMIN PANEL — Gallery photo management
+═══════════════════════════════════════════════════ */
+const HOME_ITEMS=[
+  {id:'h-glass',   label:'Glassware',      name:'Vintage Cut Glass',         emoji:'🥂'},
+  {id:'h-vase',    label:'Glassware',      name:'Botanica Vase',              emoji:'🌿'},
+  {id:'h-platter', label:'Glassware',      name:'Sunken Platter',             emoji:'🫙'},
+  {id:'h-cushion', label:'Recycled Cloth', name:'Patchwork Cushion Cover',    emoji:'🛋️'},
+  {id:'h-sheets',  label:'Recycled Cloth', name:'Heritage Bed Sheet Set',     emoji:'🛏️'},
+  {id:'h-bag',     label:'Recycled Cloth', name:'Artisan Handbag',            emoji:'👜'},
+];
+
+const GW_ITEMS=[
+  // Old Monk
+  {id:'gw-om-glass',       label:'Old Monk',        name:'Old Monk Glass',                 emoji:'🥂'},
+  {id:'gw-om-platter',     label:'Old Monk',        name:'Old Monk Platter',               emoji:'🫙'},
+  {id:'gw-om-ashtray',     label:'Old Monk',        name:'Old Monk Ash Tray',              emoji:'🪔'},
+  {id:'gw-om-set',         label:'Old Monk',        name:'Old Monk Set',                   emoji:'🫗'},
+  // Absolut Glasses
+  {id:'gw-ab-glass-red',   label:'Absolut Glass',   name:'Absolut Glass — Red',            emoji:'🥂'},
+  {id:'gw-ab-glass-blue',  label:'Absolut Glass',   name:'Absolut Glass — Blue',           emoji:'🥂'},
+  {id:'gw-ab-glass-yellow',label:'Absolut Glass',   name:'Absolut Glass — Yellow',         emoji:'🥂'},
+  // Absolut Mini Glasses
+  {id:'gw-ab-mini-red',    label:'Absolut Mini',    name:'Absolut Mini Glass — Red',       emoji:'🥃'},
+  {id:'gw-ab-mini-blue',   label:'Absolut Mini',    name:'Absolut Mini Glass — Blue',      emoji:'🥃'},
+  {id:'gw-ab-mini-yellow', label:'Absolut Mini',    name:'Absolut Mini Glass — Yellow',    emoji:'🥃'},
+  // Absolut Soap Dispensers
+  {id:'gw-ab-soap-red',    label:'Absolut Soap',    name:'Soap Dispenser — Red',           emoji:'🧴'},
+  {id:'gw-ab-soap-blue',   label:'Absolut Soap',    name:'Soap Dispenser — Blue',          emoji:'🧴'},
+  {id:'gw-ab-soap-yellow', label:'Absolut Soap',    name:'Soap Dispenser — Yellow',        emoji:'🧴'},
+  // Absolut Cooking Dispensers
+  {id:'gw-ab-cook-red',    label:'Absolut Cooking', name:'Cooking Dispenser — Red',        emoji:'🫒'},
+  {id:'gw-ab-cook-blue',   label:'Absolut Cooking', name:'Cooking Dispenser — Blue',       emoji:'🫒'},
+  {id:'gw-ab-cook-yellow', label:'Absolut Cooking', name:'Cooking Dispenser — Yellow',     emoji:'🫒'},
+  // Johnnie Walker
+  {id:'gw-jw-glass',       label:'Johnnie Walker',  name:'Johnnie Walker Glass',           emoji:'🥂'},
+  {id:'gw-jw-platter',     label:'Johnnie Walker',  name:'Johnnie Walker Platter',         emoji:'🫙'},
+  {id:'gw-jw-set',         label:'Johnnie Walker',  name:'Johnnie Walker Gift Set',        emoji:'🫗'},
+  // Indri
+  {id:'gw-indri-big',      label:'Indri',           name:'Indri Big Glass',                emoji:'🥂'},
+  {id:'gw-indri-short',    label:'Indri',           name:'Indri Short Glass',              emoji:'🥃'},
+  {id:'gw-indri-long',     label:'Indri',           name:'Indri Long Glass',               emoji:'🍸'},
+  // Grey Goose
+  {id:'gw-gg-big',         label:'Grey Goose',      name:'Grey Goose Big Glass',           emoji:'🥂'},
+  {id:'gw-gg-short',       label:'Grey Goose',      name:'Grey Goose Short Glass',         emoji:'🥃'},
+  {id:'gw-gg-jug',         label:'Grey Goose',      name:'Grey Goose Jug',                 emoji:'🫗'},
+  {id:'gw-gg-set',         label:'Grey Goose',      name:'Grey Goose Jug & Glass Set',     emoji:'🫧'},
+  // Bombay Sapphire
+  {id:'gw-bs-glass',       label:'Bombay Sapphire', name:'Bombay Sapphire Glass',          emoji:'🥂'},
+  {id:'gw-bs-ashtray',     label:'Bombay Sapphire', name:'Bombay Sapphire Ash Tray',       emoji:'🪔'},
+  {id:'gw-bs-platter',     label:'Bombay Sapphire', name:'Bombay Sapphire Platter',        emoji:'🫙'},
+  {id:'gw-bs-mug',         label:'Bombay Sapphire', name:'Bombay Sapphire Mug',            emoji:'☕'},
+  {id:'gw-bs-jug',         label:'Bombay Sapphire', name:'Bombay Sapphire Jug',            emoji:'🫗'},
+  {id:'gw-bs-set',         label:'Bombay Sapphire', name:'Bombay Sapphire Set',            emoji:'💠'},
+  // Heineken
+  {id:'gw-hk-glass',       label:'Heineken',        name:'Heineken Glass',                 emoji:'🥂'},
+  {id:'gw-hk-mug',         label:'Heineken',        name:'Heineken Mug',                   emoji:'☕'},
+  {id:'gw-hk-platter',     label:'Heineken',        name:'Heineken Platter',               emoji:'🫙'},
+  {id:'gw-hk-set',         label:'Heineken',        name:'Heineken Set',                   emoji:'🍀'},
+  // Glenfiddich
+  {id:'gw-gf-glass',       label:'Glenfiddich',     name:'Glenfiddich Glass',              emoji:'🥂'},
+  {id:'gw-gf-set',         label:'Glenfiddich',     name:'Glenfiddich Set',                emoji:'🫗'},
+  // Antiquity
+  {id:'gw-aq-glass',       label:'Antiquity',       name:'Antiquity Glass',                emoji:'🥂'},
+  {id:'gw-aq-jug',         label:'Antiquity',       name:'Antiquity Jug',                  emoji:'🫗'},
+  // Spotlight
+  {id:'gw-spotlight',      label:'Spotlight',       name:'Craft Spotlight Photo',          emoji:'✨'},
+];
+
+const RC_ITEMS=[
+  {id:'rc-cushion',        label:'Cushion Cover', name:'Patchwork Cushion Cover',    emoji:'🛋️'},
+  {id:'rc-cover',          label:'Cushion Cover', name:'Block Print Cushion Cover',  emoji:'🎨'},
+  {id:'rc-sheets',         label:'Bed Sheets',    name:'Heritage Bed Sheet Set',     emoji:'🛏️'},
+  {id:'rc-patchwork',      label:'Bed Sheets',    name:'Floral Patchwork Sheet',     emoji:'🌸'},
+  {id:'rc-bag',            label:'Handbag',       name:'Artisan Structured Handbag', emoji:'👜'},
+  {id:'rc-jacket-red',     label:'Jacket',        name:'Upcycled Jacket — Red',      emoji:'🧥'},
+  {id:'rc-jacket-yellow',  label:'Jacket',        name:'Upcycled Jacket — Yellow',   emoji:'🧥'},
+  {id:'rc-jacket-green',   label:'Jacket',        name:'Upcycled Jacket — Green',    emoji:'🧥'},
+  {id:'rc-jacket-purple',  label:'Jacket',        name:'Upcycled Jacket — Purple',   emoji:'🧥'},
+  {id:'rc-spotlight',      label:'Spotlight',     name:'Craft Spotlight Photo',      emoji:'🧵'},
+];
+
+function buildAdminGrid(items, gridEl){
+  gridEl.innerHTML='';
+  items.forEach(item=>{
+    const src = imgStore[item.id];
+    const hasImg = !!src;
+    const slot=document.createElement('div'); slot.className='uslot';
+    slot.innerHTML=`
+      <p class="uslot-label">${item.label}</p>
+      <p class="uslot-name">${item.name}</p>
+      <div class="uprev" id="aprev-${item.id}">
+        <span class="ph" style="display:${hasImg?'none':''}">${item.emoji}</span>
+        ${hasImg?`<img src="${src}">`:''}
+      </div>
+      <div class="uactions">
+        <button class="ubtn" onclick="triggerUpload('${item.id}')">📷 Upload Photo</button>
+        <button class="clrbtn" onclick="clearImg('${item.id}')">Clear</button>
+      </div>
+      <p class="ustatus" id="astatus-${item.id}">${hasImg?'✓ Photo saved':'Click Upload to add a photo'}</p>
+      <input type="file" accept="image/*" class="hi" id="afile-${item.id}"
+        onchange="handleFile(event,'${item.id}')">
+    `;
+    gridEl.appendChild(slot);
+  });
+}
+
+function openAdmin(which){
+  const map={
+    home:['homeAdminGrid',HOME_ITEMS,'homeAdminOverlay'],
+    gw:  ['gwAdminGrid',  GW_ITEMS,  'gwAdminOverlay'],
+    rc:  ['rcAdminGrid',  RC_ITEMS,  'rcAdminOverlay'],
+  };
+  const[gId,items,oId]=map[which];
+  buildAdminGrid(items, document.getElementById(gId));
+  document.getElementById(oId).classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function openAdminForPage(){
+  const map={home:'home',glassware:'gw',cloth:'rc',about:'home'};
+  openAdmin(map[currentPage]||'home');
+}
+
+function closeAdmin(which){
+  const map={home:'homeAdminOverlay',gw:'gwAdminOverlay',rc:'rcAdminOverlay'};
+  document.getElementById(map[which]).classList.remove('open');
+  document.body.style.overflow='';
+}
+
+['homeAdminOverlay','gwAdminOverlay','rcAdminOverlay'].forEach(id=>{
+  document.getElementById(id).addEventListener('click',function(e){
+    if(e.target===this){
+      closeAdmin(id.includes('home')?'home':id.includes('gw')?'gw':'rc');
+    }
+  });
+});
+
+function triggerUpload(id){ document.getElementById('afile-'+id).click(); }
+
+function handleFile(e, id){
+  const f=e.target.files[0]; if(!f)return;
+  const r=new FileReader();
+  r.onload=function(ev){
+    const raw=ev.target.result;
+    const publish=function(src){
+
+      const prev=document.getElementById('aprev-'+id);
+      if(prev){
+        let img=prev.querySelector('img');
+        if(!img){img=document.createElement('img'); prev.appendChild(img);}
+        img.src=src;
+        const em=prev.querySelector('.ph'); if(em)em.style.display='none';
+      }
+      const st=document.getElementById('astatus-'+id);
+      if(st)st.textContent='✓ Saved — persists after refresh';
+
+      const galId=idToGalleryId(id);
+      if(galId){
+        const slot=document.getElementById(galId);
+        if(slot){
+          let img=slot.querySelector('img');
+          if(!img){img=document.createElement('img'); slot.appendChild(img);}
+          img.src=src;
+          const em=slot.querySelector('.ph'); if(em)em.style.display='none';
+        }
+      }
+    };
+    const isRC=typeof id==='string'&&id.indexOf('rc-')===0;
+    const targetEdge=isRC?1680:1600;
+    const targetQuality=isRC?0.82:0.8;
+    persistImage(id,raw,targetEdge,targetQuality).then(function(result){
+      const st=document.getElementById('astatus-'+id);
+      if(result.ok){
+        publish(result.src);
+      }else if(st){
+        st.textContent='⚠ Could not save image — storage full. Clear older photos and try again.';
+      }
+    });
+  };
+  r.readAsDataURL(f);
+}
+
+function clearImg(id){
+  delete imgStore[id]; saveStore(imgStore);
+
+  // clear admin preview
+  const prev=document.getElementById('aprev-'+id);
+  if(prev){
+    const img=prev.querySelector('img'); if(img)img.remove();
+    const em=prev.querySelector('.ph'); if(em)em.style.display='';
+  }
+  const st=document.getElementById('astatus-'+id);
+  if(st)st.textContent='Click Upload to add a photo';
+  const fi=document.getElementById('afile-'+id); if(fi)fi.value='';
+
+  // clear from gallery
+  const galId=idToGalleryId(id);
+  if(galId){
+    const slot=document.getElementById(galId);
+    if(slot){
+      const img=slot.querySelector('img'); if(img)img.remove();
+      const em=slot.querySelector('.ph'); if(em)em.style.display='';
+    }
+  }
+}
+
+function applyAndClose(which){
+  const msgMap={home:'homeSaveMsg',gw:'gwSaveMsg',rc:'rcSaveMsg'};
+  const msg=document.getElementById(msgMap[which]);
+  msg.classList.add('show');
+  setTimeout(()=>{ msg.classList.remove('show'); closeAdmin(which); }, 1400);
+}
+
+/* ── PHOTO LIGHTBOX — tap image to enlarge + show card copy ── */
+function closePhotoLightbox(){
+  const lb=document.getElementById('photoLightbox');
+  if(!lb) return;
+  lb.classList.remove('open');
+  lb.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+
+function openPhotoLightbox(slotEl){
+  var cat='', name='', desc='';
+  var card=slotEl.closest('.product-card, .gw-card, .rc-card');
+  var el;
+  if(card){
+    el=card.querySelector('.p-cat, .gw-cat, .rc-cat'); cat=el?el.textContent.trim():'';
+    el=card.querySelector('.p-name, .gw-name, .rc-name'); name=el?el.textContent.trim():'';
+    el=card.querySelector('.p-desc, .gw-desc, .rc-desc'); desc=el?el.textContent.trim():'';
+  }else if(slotEl.classList.contains('gw-spot-img')){
+    var gwBlock=slotEl.nextElementSibling;
+    if(gwBlock){
+      el=gwBlock.querySelector('.gw-spot-tag'); cat=el?el.textContent.trim():'';
+      el=gwBlock.querySelector('h2'); name=el?el.textContent.trim():'';
+      el=gwBlock.querySelector('h2 + p'); desc=el?el.textContent.trim():'';
+    }
+  }else if(slotEl.classList.contains('rc-spot-img')){
+    var rcBlock=slotEl.previousElementSibling;
+    if(rcBlock){
+      el=rcBlock.querySelector('.rc-spot-tag'); cat=el?el.textContent.trim():'';
+      el=rcBlock.querySelector('h2'); name=el?el.textContent.trim():'';
+      el=rcBlock.querySelector('h2 + p'); desc=el?el.textContent.trim():'';
+    }
+  }
+
+  var img=slotEl.querySelector('img');
+  var ph=slotEl.querySelector('.ph');
+  var lbImg=document.getElementById('photoLbImg');
+  var lbPh=document.getElementById('photoLbPh');
+
+  if(img&&img.getAttribute('src')){
+    lbImg.src=img.src;
+    lbImg.alt=name||'Product photo';
+    lbImg.style.display='block';
+    lbPh.innerHTML='';
+    lbPh.style.cssText='';
+    lbPh.className='photo-lb-placeholder';
+    lbPh.style.display='none';
+  }else{
+    lbImg.removeAttribute('src');
+    lbImg.style.display='none';
+    lbPh.innerHTML='';
+    var em=document.createElement('span');
+    em.className='photo-lb-emoji';
+    em.textContent=ph?ph.textContent.trim():'';
+    lbPh.appendChild(em);
+    lbPh.className='photo-lb-placeholder '+slotEl.className;
+    lbPh.style.cssText=slotEl.style.cssText;
+    lbPh.style.display='flex';
+  }
+
+  document.getElementById('photoLbCat').textContent=cat;
+  document.getElementById('photoLbName').textContent=name;
+  document.getElementById('photoLbDesc').textContent=desc;
+
+  var lb=document.getElementById('photoLightbox');
+  lb.classList.add('open');
+  lb.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+}
+
+function initPhotoLightbox(){
+  var lb=document.getElementById('photoLightbox');
+  if(!lb) return;
+  lb.addEventListener('click',function(e){ if(e.target===lb) closePhotoLightbox(); });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&lb.classList.contains('open')) closePhotoLightbox();
+  });
+  document.body.addEventListener('click',function(e){
+    if(e.target.closest('.admin-overlay.open')) return;
+    var slot=e.target.closest('.p-img, .gw-img, .rc-img, .gw-spot-img, .rc-spot-img');
+    if(!slot) return;
+    openPhotoLightbox(slot);
+  });
+}
+
+/* ── INIT: hydrate saved photos on page load ── */
+document.addEventListener('DOMContentLoaded',function(){
+  initStore().then(function(){
+    hydrateAll();
+    initPhotoLightbox();
+  });
+});
+/* Reload from disk when tab is restored from back-forward cache (photos otherwise looked “gone”). */
+window.addEventListener('pageshow',function(ev){
+  if(ev.persisted){
+    initStore().then(function(){ hydrateAll(); });
+  }
+});
+
+function dismissOrderLightbox(){
+  var box=document.getElementById('orderLightbox');
+  if(box) box.style.display='none';
+}
+</script>
+
+<div class="order-lightbox" id="orderLightbox" role="note" aria-label="Order and custom enquiry contact">
+  <p class="order-lightbox-msg">
+    For orders and custom enquiries, please contact
+    <a class="order-lightbox-link" href="https://wa.me/919373132994" target="_blank" rel="noopener">9373132994 on WhatsApp</a>.
+  </p>
+  <button class="order-lightbox-close" type="button" onclick="dismissOrderLightbox()" aria-label="Dismiss contact notice">✕</button>
+</div>
+</body>
+</html>
